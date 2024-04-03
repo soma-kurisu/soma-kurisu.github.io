@@ -8,9 +8,15 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    permissions:
-      contents: read
-      pages: write
+
+    # finetune allowed permissions
+    # https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#permissions
+    # https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idpermissions
+    # https://docs.github.com/en/actions/security-guides/automatic-token-authentication
+    # permissions:
+    #   contents: read
+    #   pages: write
+
     steps:
       # Checkout the code
       - uses: actions/checkout@v4
@@ -34,3 +40,6 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: public/wwwroot
           force_orphan: true
+          # decide between bot and personal account
+          # user_name: 'github-actions[bot]'
+          # user_email: 'github-actions[bot]@users.noreply.github.com'
