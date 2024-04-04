@@ -4,44 +4,18 @@
 
 <h1>Contact</h1>
 
-<p role="status">Contact information: <strong>@displayOption</strong></p>
+<p role="status">Contact information: <strong>@DisplayOption</strong>.</p>
 
-<button class="btn btn-primary" @onclick="SetOption(Option.None)">Default</button>
-<button class="btn btn-primary" @onclick="SetOption(Option.Goldilocks)">Prefered</button>
-<button class="btn btn-primary" @onclick="SetOption(Option.TwistedEdwards)">Alternative</button>
+<button class="btn btn-primary" @onclick="() => SetOption(Option.None)">Default</button>
+<button class="btn btn-primary" @onclick="() => SetOption(Option.Goldilocks)">Prefered</button>
+<button class="btn btn-primary" @onclick="() => SetOption(Option.TwistedEdwards)">Alternative</button>
 
 @switch(currentOption)
 {
-    case Option.None:
-        <div class="card">
-            <div class="card-header">
-                No Privacy
-            </div>
-            <div class="card-body">
-                <p class="card-text">
-Enhance Privacy with GPG Keys
-
-As a developer, you can bolster privacy by using GPG (GNU Privacy Guard) keys. These cryptographic keys offer two critical benefits:
-
-    Encryption: Safeguard your data by encrypting messages, files, and other content. Even if intercepted, the information remains unreadable without the corresponding key.
-
-    Digital Signatures: Use GPG keys to sign messages or files. Recipients can verify authenticity using your public key.
-
-Goldilocks vs. Twisted Edwards
-
-    Goldilocks: Offers excellent security but lacks universal support. Not all platforms recognize it.
-    Twisted Edwards: A shorter-lived alternative with broader compatibility. Many tools already support it.
-
-Choose wisely based on your needs and platform requirements. Both options significantly enhance privacy compared to unencrypted communication.
-                </p>
-                <a href="mailto:0xe2836cb4@gmail.com" class="btn btn-primary">Create Mail</a>
-            </div>
-        </div>
-        break;
     case Option.Goldilocks:
         <div class="card">
             <div class="card-header">
-                @displayOption
+                @DisplayOption
             </div>
             <div class="card-body">
                 <p class="card-text">SOMA Kurisu (Primary Goldilocks Signing Identity).</p>
@@ -89,7 +63,7 @@ Choose wisely based on your needs and platform requirements. Both options signif
     case Option.TwistedEdwards:
         <div class="card">
             <div class="card-header">
-                @displayOption
+                @DisplayOption
             </div>
             <div class="card-body">
                 <p class="card-text">SOMA Kurisu - octocat (most keyservers and centralized code repositories still misses Goldilocks!).</p>
@@ -120,16 +94,66 @@ Choose wisely based on your needs and platform requirements. Both options signif
             </div>
         </div>
         break;
+    default:
+    case Option.None:
+        <div class="card">
+            <div class="card-header">
+                No Privacy
+            </div>
+            <div class="card-body">
+                <p class="card-text">
+                    <h5>Secure Your Code with GnuPG Keys</h5>
+
+                    As developers, safeguarding our code and communications is paramount. Enter GnuPG (GNU Privacy Guard) keys—a powerful tool for privacy and authenticity.
+                    Why GnuPG?
+
+                    <ul>
+                        <li><strong>Encryption</strong>: Encrypt sensitive data—whether it’s configuration files, API keys, or user credentials. With GnuPG, only authorized parties can decipher the content.</li>
+                        <li><strong>Digital Signatures</strong>: Sign your commits, tags, and releases. A signed commit ensures that it originated from you, preventing tampering or unauthorized changes.</li>
+                    </ul>
+
+                    <h1>Goldilocks vs. Twisted Edwards</h1>
+                    <ul>
+                        <li><strong>Goldilocks</strong>: A curve with robust security properties. Unfortunately, it’s not universally supported across all channels, devices, and tools. Use it wisely.</li>
+                        <li><strong>Twisted Edwards</strong>: A pragmatic alternative. It enjoys broader compatibility and many platforms already embrace it.</li>
+                    </ul>
+
+                    <h5>Remember: Privacy is not a fairy tale—it’s a developer’s responsibility</h5> 🛡️🔐
+
+                    While there are numerous alternatives to GnuPG and libgcrypt, and I even advocate for SOPS in Kubernetes deployments, conservative communication between entities remains common.
+
+                    For this reason, you have several options:
+
+                    <ul>
+                        <li>
+                            <strong>Plaintext Email</strong>: If simplicity and familiarity are your priorities, feel free to email me plaintext.
+                        </li>
+
+                        <li>
+                            <strong>Twisted Edwards Key</strong>: Opt for my shorter-lived, frequently rotated Twisted Edwards key. It’s a pragmatic choice with broader compatibility.
+                        </li>
+
+                        <li>
+                            <strong>Primary Goldilocks Key</strong>: For robust security, choose my primary Goldilocks key. It offers excellent protection but may not be universally supported.
+                        </li>
+                    </ul>
+
+                    The choice is yours—select the key that aligns best with your needs and communication channels. 🗝️
+                </p>
+                <a href="mailto:0xe2836cb4@gmail.com" class="btn btn-primary">Create Mail</a>
+            </div>
+        </div>
+        break;
 }
 
 @code {
 
     private enum Option { None, Goldilocks, TwistedEdwards }
     private Option currentOption = Option.None;
-    private string displayOption = currentOption switch {
+    private string DisplayOption => currentOption switch {
         Option.Goldilocks => "Golilocks",
         Option.TwistedEdwards => "Twisted Edwards",
-        Option.None => "Please choose how you'd like to contact me.",
+        _ => "Please choose how you'd like to contact me",
     };
     
     private void SetOption(Option selectedOption) => currentOption = selectedOption;
