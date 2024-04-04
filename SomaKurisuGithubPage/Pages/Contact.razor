@@ -6,54 +6,71 @@
 
 <p role="status">Contact information: <strong>@DisplayOption</strong>.</p>
 
-<button class="btn btn-primary" @onclick="() => SetOption(Option.None)">Default</button>
-<button class="btn btn-primary" @onclick="() => SetOption(Option.Goldilocks)">Prefered</button>
-<button class="btn btn-primary" @onclick="() => SetOption(Option.TwistedEdwards)">Alternative</button>
+<div class="row">
+    <div class="col col-2">
+        <div class="nav-item px-3">
+            <a class="nav-link" @onclick="() => SetOption(Option.None)">
+                <span class="bi bi-house-door-fill-nav-menu" aria-hidden="true"></span> Default
+            </a>
+        </div>
+    </div>
+    <div class="col col-2">
+        <div class="nav-item px-3">
+            <a class="nav-link" @onclick="() => SetOption(Option.Goldilocks)">
+                <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Prefered
+            </a>
+        </div>
+    </div>
+    <div class="col col-2">
+        <div class="nav-item px-3">
+            <a class="nav-link" @onclick="() => SetOption(Option.TwistedEdwards)">
+                <span class="bi bi-plus-square-fill-nav-menu" aria-hidden="true"></span> Alternative
+            </a>
+        </div>
+    </div>
+</div>
 
 @switch(currentOption)
 {
     case Option.Goldilocks:
-        <div class="card">
-            <div class="card-header">
-                @DisplayOption
-            </div>
-            <div class="card-body">
-                <p class="card-text">SOMA Kurisu (Primary Goldilocks Signing Identity).</p>
-                <h5 class="card-title">sub   ed448 2024-04-01 [S] [expires: 2025-04-01]</h5>
-                <h5 class="card-title">sub   cv448 2024-04-01 [E] [expires: 2025-04-01]</h5>
+        <div>
+            <h2>@DisplayOption - SOMA Kurisu (Primary Goldilocks Signing Identity).</h2>
                 <pre>
                     <code>
-                        -----BEGIN PGP PUBLIC KEY BLOCK-----
+    sub   ed448 2024-04-01 [S] [expires: 2025-04-01]
+    sub   cv448 2024-04-01 [E] [expires: 2025-04-01]
 
-                        mEkFZgsC8xYAAAA/AytlcQHI3ZEph7WwRQbNtj3KnjiYzkyOkgW5uyGYUnqL8HYl
-                        o55Ucz7spHnYwLQVty9k4VZva2TBejoGVEWAtCBTT01BIEt1cmlzdSAoUHJpbWFy
-                        eSBHb2xkaWxvY2tzKYjNBRMWCgBNIiEFuuZBfXc1MAmzZUvNZC0PtKDiGgZUI1c9
-                        bxT1WGiTjFIFAmYLAvMCGwMFCQtHNQAFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcC
-                        F4AAAONaAcMHIBFjyqFmFQhG1SppNIzanmibbCtugf7RwUszovqoCuGEu70ZFc+U
-                        jTjUjoc2fKvZMdRievVxKwABxi6cia8oYDjLZRrUdwacHUf6ETwfjQsRWZGlt6/M
-                        AFdu8zH4TjowTIVkhVbOgSKhvWmLqAFYhe0RALRIU09NQSBLdXJpc3UgKFByaW1h
-                        cnkgR29sZGlsb2NrcyBTaWduaW5nIElkZW50aXR5KSA8MHhlMjgzNmNiNEBnbWFp
-                        bC5jb20+iM0FExYKAE0iIQW65kF9dzUwCbNlS81kLQ+0oOIaBlQjVz1vFPVYaJOM
-                        UgUCZgsQ7gIbAwUJC0c1AAULCQgHAgIiAgYVCgkICwIEFgIDAQIeBwIXgAAAJTsB
-                        yPJVZ5L+rRYGuuRS9/xA1l68tPEVNyt16mG52fnMTpTs42mxCtsKBMWuWYD03AcA
-                        sTwQIgAKM30KgAHHYDs27KzLEtdtAaaZDT1UWQ8oEFdCOnBYpMIPoR2FwbdJ8BFg
-                        bkE3DhOBid4sqEwM7aLeKj1cXw0AuEkFZgsDnRYAAAA/AytlcQHIt1ISjdcMyr07
-                        d6T/vHZL3uqKrQTgj0+tgZrQh4VlHWqQxZm07nZVGyvec9RKfORFxtZv+1/nGYOA
-                        iQFdBRgWCgAyIiEFuuZBfXc1MAmzZUvNZC0PtKDiGgZUI1c9bxT1WGiTjFIFAmYL
-                        A50CGwIFCQHhM4AAq6ogBRkWCgApIiEFawYq04lUMEdUXYmJDfampjRGJEIG482S
-                        vihQhGXyQ1EFAmYLA50AAP3DAcisstm0pJ72VGQSeHJNoVNLD/M3fnA9hb/5f1Cb
-                        7wdUunQdX1FhwCjkLoRt2CsyPN1YKveyqxyRfQAByO7CaZR5TSfHgPXAJrYgXG2/
-                        syCJsODIySKfX8+TeHYD9EFaRB+QjSA3bzo2lWjaLgfzM4DEyyYbAPz1AcdFEYaa
-                        rk3LZfCZvqXfCg6Cm5Ji6hj9gStX7vOnBv8UGjuLa8OXeqoRbG16TKKEaIxgxpbB
-                        auUHJAAByNhXwLsg1AE9FJMMq7NKZOT3uyOQkt0b1Ses/xdZZdPDk358zJ+3eoOf
-                        Eg+uJgr1mzPpW5P5P9wnALhMBWYLBCkSAAAAQgMrZW8BvR6OCl+TpLVJNAixFONW
-                        aP9/Rh2ZmaNQj2pKBvT5avlJdcOJ6wAkHLZM6rMp+KgQlGXbbHiQDANtAwEKCYiy
-                        BRgWCgAyIiEFuuZBfXc1MAmzZUvNZC0PtKDiGgZUI1c9bxT1WGiTjFIFAmYLBCkC
-                        GwwFCQHhM4AAAM3ZAcd55FSHA2SvNij/bOnuVmmGWlZvN+5HTIWb1PSrU+/mbezZ
-                        4BCNj+vuSyHuN98HLv34SOv2CIblKYABx09AjfjlpYtgervOlcP/nBrTVCXG12Uo
-                        s+CkQMO9B59MxPZujapjtCv0xK20LaPLSP1ZVg2x/+gVAA==
-                        =W8Id
-                        -----END PGP PUBLIC KEY BLOCK-----
+    -----BEGIN PGP PUBLIC KEY BLOCK-----
+
+    mEkFZgsC8xYAAAA/AytlcQHI3ZEph7WwRQbNtj3KnjiYzkyOkgW5uyGYUnqL8HYl
+    o55Ucz7spHnYwLQVty9k4VZva2TBejoGVEWAtCBTT01BIEt1cmlzdSAoUHJpbWFy
+    eSBHb2xkaWxvY2tzKYjNBRMWCgBNIiEFuuZBfXc1MAmzZUvNZC0PtKDiGgZUI1c9
+    bxT1WGiTjFIFAmYLAvMCGwMFCQtHNQAFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcC
+    F4AAAONaAcMHIBFjyqFmFQhG1SppNIzanmibbCtugf7RwUszovqoCuGEu70ZFc+U
+    jTjUjoc2fKvZMdRievVxKwABxi6cia8oYDjLZRrUdwacHUf6ETwfjQsRWZGlt6/M
+    AFdu8zH4TjowTIVkhVbOgSKhvWmLqAFYhe0RALRIU09NQSBLdXJpc3UgKFByaW1h
+    cnkgR29sZGlsb2NrcyBTaWduaW5nIElkZW50aXR5KSA8MHhlMjgzNmNiNEBnbWFp
+    bC5jb20+iM0FExYKAE0iIQW65kF9dzUwCbNlS81kLQ+0oOIaBlQjVz1vFPVYaJOM
+    UgUCZgsQ7gIbAwUJC0c1AAULCQgHAgIiAgYVCgkICwIEFgIDAQIeBwIXgAAAJTsB
+    yPJVZ5L+rRYGuuRS9/xA1l68tPEVNyt16mG52fnMTpTs42mxCtsKBMWuWYD03AcA
+    sTwQIgAKM30KgAHHYDs27KzLEtdtAaaZDT1UWQ8oEFdCOnBYpMIPoR2FwbdJ8BFg
+    bkE3DhOBid4sqEwM7aLeKj1cXw0AuEkFZgsDnRYAAAA/AytlcQHIt1ISjdcMyr07
+    d6T/vHZL3uqKrQTgj0+tgZrQh4VlHWqQxZm07nZVGyvec9RKfORFxtZv+1/nGYOA
+    iQFdBRgWCgAyIiEFuuZBfXc1MAmzZUvNZC0PtKDiGgZUI1c9bxT1WGiTjFIFAmYL
+    A50CGwIFCQHhM4AAq6ogBRkWCgApIiEFawYq04lUMEdUXYmJDfampjRGJEIG482S
+    vihQhGXyQ1EFAmYLA50AAP3DAcisstm0pJ72VGQSeHJNoVNLD/M3fnA9hb/5f1Cb
+    7wdUunQdX1FhwCjkLoRt2CsyPN1YKveyqxyRfQAByO7CaZR5TSfHgPXAJrYgXG2/
+    syCJsODIySKfX8+TeHYD9EFaRB+QjSA3bzo2lWjaLgfzM4DEyyYbAPz1AcdFEYaa
+    rk3LZfCZvqXfCg6Cm5Ji6hj9gStX7vOnBv8UGjuLa8OXeqoRbG16TKKEaIxgxpbB
+    auUHJAAByNhXwLsg1AE9FJMMq7NKZOT3uyOQkt0b1Ses/xdZZdPDk358zJ+3eoOf
+    Eg+uJgr1mzPpW5P5P9wnALhMBWYLBCkSAAAAQgMrZW8BvR6OCl+TpLVJNAixFONW
+    aP9/Rh2ZmaNQj2pKBvT5avlJdcOJ6wAkHLZM6rMp+KgQlGXbbHiQDANtAwEKCYiy
+    BRgWCgAyIiEFuuZBfXc1MAmzZUvNZC0PtKDiGgZUI1c9bxT1WGiTjFIFAmYLBCkC
+    GwwFCQHhM4AAAM3ZAcd55FSHA2SvNij/bOnuVmmGWlZvN+5HTIWb1PSrU+/mbezZ
+    4BCNj+vuSyHuN98HLv34SOv2CIblKYABx09AjfjlpYtgervOlcP/nBrTVCXG12Uo
+    s+CkQMO9B59MxPZujapjtCv0xK20LaPLSP1ZVg2x/+gVAA==
+    =W8Id
+    -----END PGP PUBLIC KEY BLOCK-----
                     </code>
                 </pre>
                 <a href="mailto:0xe2836cb4@gmail.com?body=---fpr:BAE6417D77353009B3654BCD642D0FB4A0E21A065423573D6F14F55868938C52---" class="btn btn-primary">Create Mail</a>
@@ -61,33 +78,30 @@
         </div>
         break;
     case Option.TwistedEdwards:
-        <div class="card">
-            <div class="card-header">
-                @DisplayOption
-            </div>
-            <div class="card-body">
-                <p class="card-text">SOMA Kurisu - octocat (most keyservers and centralized code repositories still misses Goldilocks!).</p>
-                <h5 class="card-title">pub   ed25519 2024-04-01 [SC] [expires: 2025-04-01]</h5>
+        <div>
+            <h2>@DisplayOption - SOMA Kurisu - octocat (most keyservers and centralized code repositories still misses Goldilocks!).</h2>
                 <pre>
                     <code>
-                        -----BEGIN PGP PUBLIC KEY BLOCK-----
+    pub   ed25519 2024-04-01 [SC] [expires: 2025-04-01]
+    
+    -----BEGIN PGP PUBLIC KEY BLOCK-----
 
-                        mDMEZgsSWRYJKwYBBAHaRw8BAQdA4D3Im4jmMo3iJr4y1sJz8CMs+uDdhrgE1IOG
-                        HeoBBLa0XlNPTUEgS3VyaXN1IC0gb2N0b2NhdCAob2N0b2NhdCBjb21taXQgc2ln
-                        bmluZyBzdGlsbCBtaXNzZXMgZ29sZGlsb2NrcyEpIDwweGUyODM2Y2I0QGdtYWls
-                        LmNvbT6ImQQTFgoAQRYhBISab48xkbEySvVED3xiKvGbKDQIBQJmCxJZAhsDBQkB
-                        4TOABQsJCAcCAiICBhUKCQgLAgQWAgMBAh4HAheAAAoJEHxiKvGbKDQI8v0A/2Ko
-                        DsoX/3JrUkAFimJQ9WfuzTYmawPSFsqndkVWShNEAP0doQCai/thyBY618j/L+Ng
-                        0CFAj4Bd5bbgqq1pS0VLDIipBRAWCgApIiEFuuZBfXc1MAmzZUvNZC0PtKDiGgZU
-                        I1c9bxT1WGiTjFIFAmYLIQUAAOcyAcdlA6MqsZm0QI1z00uRkse5FCxOjiJF2zKb
-                        aax0t2yada7X3QJcnVrW0/OmRagiPbsocuhwQT0cywABxRjVOplimIHJZiLSKi4a
-                        Axhyx1/RDaH02O6r2HfifmIJj3VzSyjnzMO/RJE7OCq5j0lSVKEje1UhALg4BGYL
-                        ElkSCisGAQQBl1UBBQEBB0AiUq0guN9IXdX6PGawHDRC7ArJu17lWi9/9d27KvKd
-                        VAMBCAeIfgQYFgoAJhYhBISab48xkbEySvVED3xiKvGbKDQIBQJmCxJZAhsMBQkB
-                        4TOAAAoJEHxiKvGbKDQI3fwBAJP9MJvUcB2BbKLoOvE+SwCWI06pB9uUOGcgaNqS
-                        dhlXAQCf67EResDImhUCAYiCjK3KZunO5LU7llfWKV7yr0c5AQ==
-                        =h3c4
-                        -----END PGP PUBLIC KEY BLOCK-----
+    mDMEZgsSWRYJKwYBBAHaRw8BAQdA4D3Im4jmMo3iJr4y1sJz8CMs+uDdhrgE1IOG
+    HeoBBLa0XlNPTUEgS3VyaXN1IC0gb2N0b2NhdCAob2N0b2NhdCBjb21taXQgc2ln
+    bmluZyBzdGlsbCBtaXNzZXMgZ29sZGlsb2NrcyEpIDwweGUyODM2Y2I0QGdtYWls
+    LmNvbT6ImQQTFgoAQRYhBISab48xkbEySvVED3xiKvGbKDQIBQJmCxJZAhsDBQkB
+    4TOABQsJCAcCAiICBhUKCQgLAgQWAgMBAh4HAheAAAoJEHxiKvGbKDQI8v0A/2Ko
+    DsoX/3JrUkAFimJQ9WfuzTYmawPSFsqndkVWShNEAP0doQCai/thyBY618j/L+Ng
+    0CFAj4Bd5bbgqq1pS0VLDIipBRAWCgApIiEFuuZBfXc1MAmzZUvNZC0PtKDiGgZU
+    I1c9bxT1WGiTjFIFAmYLIQUAAOcyAcdlA6MqsZm0QI1z00uRkse5FCxOjiJF2zKb
+    aax0t2yada7X3QJcnVrW0/OmRagiPbsocuhwQT0cywABxRjVOplimIHJZiLSKi4a
+    Axhyx1/RDaH02O6r2HfifmIJj3VzSyjnzMO/RJE7OCq5j0lSVKEje1UhALg4BGYL
+    ElkSCisGAQQBl1UBBQEBB0AiUq0guN9IXdX6PGawHDRC7ArJu17lWi9/9d27KvKd
+    VAMBCAeIfgQYFgoAJhYhBISab48xkbEySvVED3xiKvGbKDQIBQJmCxJZAhsMBQkB
+    4TOAAAoJEHxiKvGbKDQI3fwBAJP9MJvUcB2BbKLoOvE+SwCWI06pB9uUOGcgaNqS
+    dhlXAQCf67EResDImhUCAYiCjK3KZunO5LU7llfWKV7yr0c5AQ==
+    =h3c4
+    -----END PGP PUBLIC KEY BLOCK-----
                     </code>
                 </pre>
                 <a href="mailto:0xe2836cb4@gmail.com?body=---fpr:849A6F8F3191B1324AF5440F7C622AF19B283408---" class="btn btn-primary">Create Mail</a>
@@ -96,52 +110,48 @@
         break;
     default:
     case Option.None:
-        <div class="card">
-            <div class="card-header">
-                No Privacy
-            </div>
-            <div class="card-body">
-                <p class="card-text">
-                    <h5>Secure Your Code with GnuPG Keys</h5>
+        <div>
+            <h2>Contact me without any privacy</h2>
+            <p>but</p>
+            <h2>Secure Your Code with GnuPG Keys</h2>
 
-                    As developers, safeguarding our code and communications is paramount. Enter GnuPG (GNU Privacy Guard) keys—a powerful tool for privacy and authenticity.
-                    Why GnuPG?
+                As developers, safeguarding our code and communications is paramount. Enter GnuPG (GNU Privacy Guard) keys—a powerful tool for privacy and authenticity.
+                Why GnuPG?
 
-                    <ul>
-                        <li><strong>Encryption</strong>: Encrypt sensitive data—whether it’s configuration files, API keys, or user credentials. With GnuPG, only authorized parties can decipher the content.</li>
-                        <li><strong>Digital Signatures</strong>: Sign your commits, tags, and releases. A signed commit ensures that it originated from you, preventing tampering or unauthorized changes.</li>
-                    </ul>
+                <ul>
+                    <li><strong>Encryption</strong>: Encrypt sensitive data—whether it’s configuration files, API keys, or user credentials. With GnuPG, only authorized parties can decipher the content.</li>
+                    <li><strong>Digital Signatures</strong>: Sign your commits, tags, and releases. A signed commit ensures that it originated from you, preventing tampering or unauthorized changes.</li>
+                </ul>
 
-                    <h1>Goldilocks vs. Twisted Edwards</h1>
-                    <ul>
-                        <li><strong>Goldilocks</strong>: A curve with robust security properties. Unfortunately, it’s not universally supported across all channels, devices, and tools. Use it wisely.</li>
-                        <li><strong>Twisted Edwards</strong>: A pragmatic alternative. It enjoys broader compatibility and many platforms already embrace it.</li>
-                    </ul>
+                <h1>Goldilocks vs. Twisted Edwards</h1>
+                <ul>
+                    <li><strong>Goldilocks</strong>: A curve with robust security properties. Unfortunately, it’s not universally supported across all channels, devices, and tools. Use it wisely.</li>
+                    <li><strong>Twisted Edwards</strong>: A pragmatic alternative. It enjoys broader compatibility and many platforms already embrace it.</li>
+                </ul>
 
-                    <h5>Remember: Privacy is not a fairy tale—it’s a developer’s responsibility</h5> 🛡️🔐
+                <h2>Remember: Privacy is not a fairy tale—it’s a developer’s responsibility</h2> 🛡️🔐
 
-                    While there are numerous alternatives to GnuPG and libgcrypt, and I even advocate for SOPS in Kubernetes deployments, conservative communication between entities remains common.
+                While there are numerous alternatives to GnuPG and libgcrypt, and I even advocate for SOPS in Kubernetes deployments, conservative communication between entities remains common.
 
-                    For this reason, you have several options:
+                For this reason, you have several options:
 
-                    <ul>
-                        <li>
-                            <strong>Plaintext Email</strong>: If simplicity and familiarity are your priorities, feel free to email me plaintext.
-                        </li>
+                <ul>
+                    <li>
+                        <strong>Plaintext Email</strong>: If simplicity and familiarity are your priorities, feel free to email me plaintext.
+                    </li>
 
-                        <li>
-                            <strong>Twisted Edwards Key</strong>: Opt for my shorter-lived, frequently rotated Twisted Edwards key. It’s a pragmatic choice with broader compatibility.
-                        </li>
+                    <li>
+                        <strong>Twisted Edwards Key</strong>: Opt for my shorter-lived, frequently rotated Twisted Edwards key. It’s a pragmatic choice with broader compatibility.
+                    </li>
 
-                        <li>
-                            <strong>Primary Goldilocks Key</strong>: For robust security, choose my primary Goldilocks key. It offers excellent protection but may not be universally supported.
-                        </li>
-                    </ul>
+                    <li>
+                        <strong>Primary Goldilocks Key</strong>: For robust security, choose my primary Goldilocks key. It offers excellent protection but may not be universally supported.
+                    </li>
+                </ul>
 
-                    The choice is yours—select the key that aligns best with your needs and communication channels. 🗝️
-                </p>
-                <a href="mailto:0xe2836cb4@gmail.com" class="btn btn-primary">Create Mail</a>
-            </div>
+                The choice is yours—select the key that aligns best with your needs and communication channels. 🗝️
+
+            <a href="mailto:0xe2836cb4@gmail.com" class="btn btn-primary">Create Mail</a>
         </div>
         break;
 }
@@ -151,7 +161,7 @@
     private enum Option { None, Goldilocks, TwistedEdwards }
     private Option currentOption = Option.None;
     private string DisplayOption => currentOption switch {
-        Option.Goldilocks => "Golilocks",
+        Option.Goldilocks => "Goldilocks",
         Option.TwistedEdwards => "Twisted Edwards",
         _ => "Please choose how you'd like to contact me",
     };
