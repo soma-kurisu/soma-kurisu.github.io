@@ -1,0 +1,32 @@
+@using System.Text
+
+@code {
+    private string _styles = string.Empty;
+
+    protected override void OnInitialized()
+    {
+        var sb = new StringBuilder();
+
+        sb.Append("@keyframes noise-1 {");
+        for (int i = 1; i <= 30; i++)
+        {
+            var top = new Random().Next(100);
+            var bottom = new Random().Next(101 - top);
+            sb.Append($"{i * 3.33}% {{ clip-path: inset({top}px 0 {bottom}px 0); }}");
+        }
+        sb.Append("}");
+
+        sb.Append("@keyframes noise-2 {");
+        for (int i = 0; i <= 30; i++)
+        {
+            var top = new Random().Next(100);
+            var bottom = new Random().Next(101 - top);
+            sb.Append($"{i * 3.33}% {{ clip-path: inset({top}px 0 {bottom}px 0); }}");
+        }
+        sb.Append("}");
+
+        _styles = sb.ToString();
+    }
+
+    protected string Styles => _styles;
+}

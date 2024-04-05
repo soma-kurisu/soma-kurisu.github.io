@@ -1,8 +1,23 @@
 ﻿@page "/"
+@inherits BaseComponent
 
 <PageTitle>Home</PageTitle>
 
-<h1>Philosophy</h1>
+<style>
+    @((MarkupString)Styles)
+</style>
+
+<div style="height: 5rem;">
+    @if(renderAnimation)
+    {
+        <div class="glitch" data-text="Contact">Philosophy</div>
+        <div class="glow">Philosophy</div>
+    }
+    else
+    {
+        <h1>Philosophy</h1>
+    }
+</div>
 
 <h2>🗡️ Code as katana — Deploy as incense 🌸</h2>
 <p>
@@ -23,3 +38,17 @@
         </li>
     </ul>
 </p>
+
+@code {
+    private bool renderAnimation = true;
+    
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            await Task.Delay(1000);
+            renderAnimation = false;
+            StateHasChanged();
+        }
+    }
+}

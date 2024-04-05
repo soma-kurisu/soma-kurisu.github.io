@@ -1,118 +1,179 @@
 @page "/contact"
+@inject IJSRuntime JSRuntime
+@inherits BaseComponent
 
 <PageTitle>Contact</PageTitle>
 
-<h1>Contact</h1>
+<style>
+    @((MarkupString)Styles)
+</style>
 
-<p role="status">Contact information: <strong>@DisplayOption</strong>.</p>
+<div style="height: 5rem;">
+    @if(renderAnimation)
+    {
+        <div class="glitch" data-text="Contact">Contact</div>
+        <div class="glow">Contact</div>
+    }
+    else
+    {
+        <h1>Contact</h1>
+    }
+</div>
+
+<p>Choose how you would like to contact me</p>
 
 <div class="row">
     <div class="col col-2">
-        <div class="nav-item px-3">
-            <a class="nav-link" @onclick="() => SetOption(Option.None)">
-                <span class="bi bi-house-door-fill-nav-menu" aria-hidden="true"></span> Default
+        <div class="nav-item">
+            <a class="nav-item px-3 @(currentOption == Option.None ? "active" : "")" @onclick="() => SetOption(Option.None)">
+                <span class="bi bi-cloud-lightning-rain-fill" aria-hidden="true"></span> Default
             </a>
         </div>
     </div>
     <div class="col col-2">
-        <div class="nav-item px-3">
-            <a class="nav-link" @onclick="() => SetOption(Option.Goldilocks)">
-                <span class="bi bi-list-nested-nav-menu" aria-hidden="true"></span> Prefered
+        <div class="nav-item">
+            <a class="nav-item px-3 @(currentOption == Option.Goldilocks ? "active" : "")" @onclick="() => SetOption(Option.Goldilocks)">
+                <span class="bi bi-cloud-sun-fill" aria-hidden="true"></span> Prefered
             </a>
         </div>
     </div>
     <div class="col col-2">
-        <div class="nav-item px-3">
-            <a class="nav-link" @onclick="() => SetOption(Option.TwistedEdwards)">
-                <span class="bi bi-plus-square-fill-nav-menu" aria-hidden="true"></span> Alternative
+        <div class="nav-item">
+            <a class="nav-item px-3 @(currentOption == Option.TwistedEdwards ? "active" : "")" @onclick="() => SetOption(Option.TwistedEdwards)">
+                <span class="bi bi-brightness-high-fill" aria-hidden="true"></span> Alternative
             </a>
         </div>
     </div>
 </div>
 
+<p>Contact information for <strong>@DisplayOption</strong>.</p>
 @switch(currentOption)
 {
     case Option.Goldilocks:
+        info = @"
+        sub   ed448 2024-04-01 [S] [expires: 2025-04-01]
+        sub   cv448 2024-04-01 [E] [expires: 2025-04-01]
+        ";
+        keys = @"
+        -----BEGIN PGP PUBLIC KEY BLOCK-----
+
+        mEkFZgsC8xYAAAA/AytlcQHI3ZEph7WwRQbNtj3KnjiYzkyOkgW5uyGYUnqL8HYl
+        o55Ucz7spHnYwLQVty9k4VZva2TBejoGVEWAtCBTT01BIEt1cmlzdSAoUHJpbWFy
+        eSBHb2xkaWxvY2tzKYjNBRMWCgBNIiEFuuZBfXc1MAmzZUvNZC0PtKDiGgZUI1c9
+        bxT1WGiTjFIFAmYLAvMCGwMFCQtHNQAFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcC
+        F4AAAONaAcMHIBFjyqFmFQhG1SppNIzanmibbCtugf7RwUszovqoCuGEu70ZFc+U
+        jTjUjoc2fKvZMdRievVxKwABxi6cia8oYDjLZRrUdwacHUf6ETwfjQsRWZGlt6/M
+        AFdu8zH4TjowTIVkhVbOgSKhvWmLqAFYhe0RALRIU09NQSBLdXJpc3UgKFByaW1h
+        cnkgR29sZGlsb2NrcyBTaWduaW5nIElkZW50aXR5KSA8MHhlMjgzNmNiNEBnbWFp
+        bC5jb20+iM0FExYKAE0iIQW65kF9dzUwCbNlS81kLQ+0oOIaBlQjVz1vFPVYaJOM
+        UgUCZgsQ7gIbAwUJC0c1AAULCQgHAgIiAgYVCgkICwIEFgIDAQIeBwIXgAAAJTsB
+        yPJVZ5L+rRYGuuRS9/xA1l68tPEVNyt16mG52fnMTpTs42mxCtsKBMWuWYD03AcA
+        sTwQIgAKM30KgAHHYDs27KzLEtdtAaaZDT1UWQ8oEFdCOnBYpMIPoR2FwbdJ8BFg
+        bkE3DhOBid4sqEwM7aLeKj1cXw0AuEkFZgsDnRYAAAA/AytlcQHIt1ISjdcMyr07
+        d6T/vHZL3uqKrQTgj0+tgZrQh4VlHWqQxZm07nZVGyvec9RKfORFxtZv+1/nGYOA
+        iQFdBRgWCgAyIiEFuuZBfXc1MAmzZUvNZC0PtKDiGgZUI1c9bxT1WGiTjFIFAmYL
+        A50CGwIFCQHhM4AAq6ogBRkWCgApIiEFawYq04lUMEdUXYmJDfampjRGJEIG482S
+        vihQhGXyQ1EFAmYLA50AAP3DAcisstm0pJ72VGQSeHJNoVNLD/M3fnA9hb/5f1Cb
+        7wdUunQdX1FhwCjkLoRt2CsyPN1YKveyqxyRfQAByO7CaZR5TSfHgPXAJrYgXG2/
+        syCJsODIySKfX8+TeHYD9EFaRB+QjSA3bzo2lWjaLgfzM4DEyyYbAPz1AcdFEYaa
+        rk3LZfCZvqXfCg6Cm5Ji6hj9gStX7vOnBv8UGjuLa8OXeqoRbG16TKKEaIxgxpbB
+        auUHJAAByNhXwLsg1AE9FJMMq7NKZOT3uyOQkt0b1Ses/xdZZdPDk358zJ+3eoOf
+        Eg+uJgr1mzPpW5P5P9wnALhMBWYLBCkSAAAAQgMrZW8BvR6OCl+TpLVJNAixFONW
+        aP9/Rh2ZmaNQj2pKBvT5avlJdcOJ6wAkHLZM6rMp+KgQlGXbbHiQDANtAwEKCYiy
+        BRgWCgAyIiEFuuZBfXc1MAmzZUvNZC0PtKDiGgZUI1c9bxT1WGiTjFIFAmYLBCkC
+        GwwFCQHhM4AAAM3ZAcd55FSHA2SvNij/bOnuVmmGWlZvN+5HTIWb1PSrU+/mbezZ
+        4BCNj+vuSyHuN98HLv34SOv2CIblKYABx09AjfjlpYtgervOlcP/nBrTVCXG12Uo
+        s+CkQMO9B59MxPZujapjtCv0xK20LaPLSP1ZVg2x/+gVAA==
+        =W8Id
+        -----END PGP PUBLIC KEY BLOCK-----
+        ";
         <div>
-            <h2>@DisplayOption - SOMA Kurisu (Primary Goldilocks Signing Identity).</h2>
-            <pre>
-                <code>
-    sub   ed448 2024-04-01 [S] [expires: 2025-04-01]
-    sub   cv448 2024-04-01 [E] [expires: 2025-04-01]
+            <div class="row">
+                <div class="col col-12">
+                    <p>This is my primary key. But since most keyservers and centralized code repositories still miss Goldilocks you may consider using my Twisted Edwards keys.</p>
+                    <p>Keys and expiry info</p>
+                    <pre>
+                        <code>
+                            @info                    
 
-    -----BEGIN PGP PUBLIC KEY BLOCK-----
-
-    mEkFZgsC8xYAAAA/AytlcQHI3ZEph7WwRQbNtj3KnjiYzkyOkgW5uyGYUnqL8HYl
-    o55Ucz7spHnYwLQVty9k4VZva2TBejoGVEWAtCBTT01BIEt1cmlzdSAoUHJpbWFy
-    eSBHb2xkaWxvY2tzKYjNBRMWCgBNIiEFuuZBfXc1MAmzZUvNZC0PtKDiGgZUI1c9
-    bxT1WGiTjFIFAmYLAvMCGwMFCQtHNQAFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcC
-    F4AAAONaAcMHIBFjyqFmFQhG1SppNIzanmibbCtugf7RwUszovqoCuGEu70ZFc+U
-    jTjUjoc2fKvZMdRievVxKwABxi6cia8oYDjLZRrUdwacHUf6ETwfjQsRWZGlt6/M
-    AFdu8zH4TjowTIVkhVbOgSKhvWmLqAFYhe0RALRIU09NQSBLdXJpc3UgKFByaW1h
-    cnkgR29sZGlsb2NrcyBTaWduaW5nIElkZW50aXR5KSA8MHhlMjgzNmNiNEBnbWFp
-    bC5jb20+iM0FExYKAE0iIQW65kF9dzUwCbNlS81kLQ+0oOIaBlQjVz1vFPVYaJOM
-    UgUCZgsQ7gIbAwUJC0c1AAULCQgHAgIiAgYVCgkICwIEFgIDAQIeBwIXgAAAJTsB
-    yPJVZ5L+rRYGuuRS9/xA1l68tPEVNyt16mG52fnMTpTs42mxCtsKBMWuWYD03AcA
-    sTwQIgAKM30KgAHHYDs27KzLEtdtAaaZDT1UWQ8oEFdCOnBYpMIPoR2FwbdJ8BFg
-    bkE3DhOBid4sqEwM7aLeKj1cXw0AuEkFZgsDnRYAAAA/AytlcQHIt1ISjdcMyr07
-    d6T/vHZL3uqKrQTgj0+tgZrQh4VlHWqQxZm07nZVGyvec9RKfORFxtZv+1/nGYOA
-    iQFdBRgWCgAyIiEFuuZBfXc1MAmzZUvNZC0PtKDiGgZUI1c9bxT1WGiTjFIFAmYL
-    A50CGwIFCQHhM4AAq6ogBRkWCgApIiEFawYq04lUMEdUXYmJDfampjRGJEIG482S
-    vihQhGXyQ1EFAmYLA50AAP3DAcisstm0pJ72VGQSeHJNoVNLD/M3fnA9hb/5f1Cb
-    7wdUunQdX1FhwCjkLoRt2CsyPN1YKveyqxyRfQAByO7CaZR5TSfHgPXAJrYgXG2/
-    syCJsODIySKfX8+TeHYD9EFaRB+QjSA3bzo2lWjaLgfzM4DEyyYbAPz1AcdFEYaa
-    rk3LZfCZvqXfCg6Cm5Ji6hj9gStX7vOnBv8UGjuLa8OXeqoRbG16TKKEaIxgxpbB
-    auUHJAAByNhXwLsg1AE9FJMMq7NKZOT3uyOQkt0b1Ses/xdZZdPDk358zJ+3eoOf
-    Eg+uJgr1mzPpW5P5P9wnALhMBWYLBCkSAAAAQgMrZW8BvR6OCl+TpLVJNAixFONW
-    aP9/Rh2ZmaNQj2pKBvT5avlJdcOJ6wAkHLZM6rMp+KgQlGXbbHiQDANtAwEKCYiy
-    BRgWCgAyIiEFuuZBfXc1MAmzZUvNZC0PtKDiGgZUI1c9bxT1WGiTjFIFAmYLBCkC
-    GwwFCQHhM4AAAM3ZAcd55FSHA2SvNij/bOnuVmmGWlZvN+5HTIWb1PSrU+/mbezZ
-    4BCNj+vuSyHuN98HLv34SOv2CIblKYABx09AjfjlpYtgervOlcP/nBrTVCXG12Uo
-    s+CkQMO9B59MxPZujapjtCv0xK20LaPLSP1ZVg2x/+gVAA==
-    =W8Id
-    -----END PGP PUBLIC KEY BLOCK-----
-                </code>
-            </pre>
-            <div class="nav-item px-3">
-                <a class="nav-link" href="mailto:0xe2836cb4@gmail.com?body=---fpr:BAE6417D77353009B3654BCD642D0FB4A0E21A065423573D6F14F55868938C52---">
-                    <span class="bi bi-plus-square-fill-nav-menu" aria-hidden="true"></span>
-                    Create Mail
-                </a>
+                            @keys
+                        </code>
+                    </pre>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col col-2">
+                    <div class="nav-item">
+                        <a class="nav-item px-3" href="mailto:0xe2836cb4@gmail.com?body=---fpr:BAE6417D77353009B3654BCD642D0FB4A0E21A065423573D6F14F55868938C52---">
+                            <span class="bi bi-send-fill" aria-hidden="true"></span>
+                            Create Mail
+                        </a>
+                    </div>
+                </div>
+                <div class="col col-2">
+                    <div class="nav-item">
+                        <a class="nav-item px-3" href="" @onclick="CopyKeys">
+                            <span class="bi bi-copy" aria-hidden="true"></span>
+                            Copy Keys
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
         break;
     case Option.TwistedEdwards:
-        <div>
-            <h2>@DisplayOption - SOMA Kurisu - octocat (most keyservers and centralized code repositories still misses Goldilocks!).</h2>
-            <pre>
-                <code>
-    pub   ed25519 2024-04-01 [SC] [expires: 2025-04-01]
-    
-    -----BEGIN PGP PUBLIC KEY BLOCK-----
+        info = @"pub   ed25519 2024-04-01 [SC] [expires: 2025-04-01]";
+        keys = @"
+        -----BEGIN PGP PUBLIC KEY BLOCK-----
 
-    mDMEZgsSWRYJKwYBBAHaRw8BAQdA4D3Im4jmMo3iJr4y1sJz8CMs+uDdhrgE1IOG
-    HeoBBLa0XlNPTUEgS3VyaXN1IC0gb2N0b2NhdCAob2N0b2NhdCBjb21taXQgc2ln
-    bmluZyBzdGlsbCBtaXNzZXMgZ29sZGlsb2NrcyEpIDwweGUyODM2Y2I0QGdtYWls
-    LmNvbT6ImQQTFgoAQRYhBISab48xkbEySvVED3xiKvGbKDQIBQJmCxJZAhsDBQkB
-    4TOABQsJCAcCAiICBhUKCQgLAgQWAgMBAh4HAheAAAoJEHxiKvGbKDQI8v0A/2Ko
-    DsoX/3JrUkAFimJQ9WfuzTYmawPSFsqndkVWShNEAP0doQCai/thyBY618j/L+Ng
-    0CFAj4Bd5bbgqq1pS0VLDIipBRAWCgApIiEFuuZBfXc1MAmzZUvNZC0PtKDiGgZU
-    I1c9bxT1WGiTjFIFAmYLIQUAAOcyAcdlA6MqsZm0QI1z00uRkse5FCxOjiJF2zKb
-    aax0t2yada7X3QJcnVrW0/OmRagiPbsocuhwQT0cywABxRjVOplimIHJZiLSKi4a
-    Axhyx1/RDaH02O6r2HfifmIJj3VzSyjnzMO/RJE7OCq5j0lSVKEje1UhALg4BGYL
-    ElkSCisGAQQBl1UBBQEBB0AiUq0guN9IXdX6PGawHDRC7ArJu17lWi9/9d27KvKd
-    VAMBCAeIfgQYFgoAJhYhBISab48xkbEySvVED3xiKvGbKDQIBQJmCxJZAhsMBQkB
-    4TOAAAoJEHxiKvGbKDQI3fwBAJP9MJvUcB2BbKLoOvE+SwCWI06pB9uUOGcgaNqS
-    dhlXAQCf67EResDImhUCAYiCjK3KZunO5LU7llfWKV7yr0c5AQ==
-    =h3c4
-    -----END PGP PUBLIC KEY BLOCK-----
-                </code>
-            </pre>
-            <div class="nav-item px-3">
-                <a class="nav-link" href="mailto:0xe2836cb4@gmail.com?body=---fpr:849A6F8F3191B1324AF5440F7C622AF19B283408---">
-                    <span class="bi bi-plus-square-fill-nav-menu" aria-hidden="true"></span>
-                    Create Mail
-                </a>
+        mDMEZgsSWRYJKwYBBAHaRw8BAQdA4D3Im4jmMo3iJr4y1sJz8CMs+uDdhrgE1IOG
+        HeoBBLa0XlNPTUEgS3VyaXN1IC0gb2N0b2NhdCAob2N0b2NhdCBjb21taXQgc2ln
+        bmluZyBzdGlsbCBtaXNzZXMgZ29sZGlsb2NrcyEpIDwweGUyODM2Y2I0QGdtYWls
+        LmNvbT6ImQQTFgoAQRYhBISab48xkbEySvVED3xiKvGbKDQIBQJmCxJZAhsDBQkB
+        4TOABQsJCAcCAiICBhUKCQgLAgQWAgMBAh4HAheAAAoJEHxiKvGbKDQI8v0A/2Ko
+        DsoX/3JrUkAFimJQ9WfuzTYmawPSFsqndkVWShNEAP0doQCai/thyBY618j/L+Ng
+        0CFAj4Bd5bbgqq1pS0VLDIipBRAWCgApIiEFuuZBfXc1MAmzZUvNZC0PtKDiGgZU
+        I1c9bxT1WGiTjFIFAmYLIQUAAOcyAcdlA6MqsZm0QI1z00uRkse5FCxOjiJF2zKb
+        aax0t2yada7X3QJcnVrW0/OmRagiPbsocuhwQT0cywABxRjVOplimIHJZiLSKi4a
+        Axhyx1/RDaH02O6r2HfifmIJj3VzSyjnzMO/RJE7OCq5j0lSVKEje1UhALg4BGYL
+        ElkSCisGAQQBl1UBBQEBB0AiUq0guN9IXdX6PGawHDRC7ArJu17lWi9/9d27KvKd
+        VAMBCAeIfgQYFgoAJhYhBISab48xkbEySvVED3xiKvGbKDQIBQJmCxJZAhsMBQkB
+        4TOAAAoJEHxiKvGbKDQI3fwBAJP9MJvUcB2BbKLoOvE+SwCWI06pB9uUOGcgaNqS
+        dhlXAQCf67EResDImhUCAYiCjK3KZunO5LU7llfWKV7yr0c5AQ==
+        =h3c4
+        -----END PGP PUBLIC KEY BLOCK-----
+        ";
+        <div>
+            <div class="row">
+                <div class="col col-12">
+                    <p>Most keyservers and centralized code repositories still miss Goldilocks!. So this one is still frequently used but rotates more often than my primary keys.</p>
+                    <p>Keys and expiry info</p>
+                    <pre>
+                        <code>
+                            @info                    
+
+                            @keys
+                        </code>
+                    </pre>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col col-2">
+                    <div class="nav-item">
+                        <a class="nav-item px-3" href="mailto:0xe2836cb4@gmail.com?body=---fpr:849A6F8F3191B1324AF5440F7C622AF19B283408---">
+                            <span class="bi bi-send-fill" aria-hidden="true"></span>
+                            Create Mail
+                        </a>
+                    </div>
+                </div>
+                <div class="col col-2">
+                    <div class="nav-item">
+                        <a class="nav-item px-3" href="" @onclick="CopyKeys">
+                            <span class="bi bi-copy" aria-hidden="true"></span>
+                            Copy Keys
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
         break;
@@ -120,9 +181,14 @@
     case Option.None:
         <div>
             <h2>Contact me without any privacy</h2>
-            <p>but</p>
-            <h2>Secure Your Code with GnuPG Keys</h2>
-
+            <div class="nav-item px-3">
+                <a class="nav-item" href="mailto:0xe2836cb4@gmail.com">
+                    <span class="bi bi-send-fill" aria-hidden="true"></span>
+                    Create Mail
+                </a>
+            </div>
+            <p>but consider securing your code with GnuPG keys</p>
+            <p>
                 As developers, safeguarding our code and communications is paramount. Enter GnuPG (GNU Privacy Guard) keys—a powerful tool for privacy and authenticity.
                 Why GnuPG?
 
@@ -158,26 +224,38 @@
                 </ul>
 
                 The choice is yours—select the key that aligns best with your needs and communication channels. 🗝️
-
-            <div class="nav-item px-3">
-                <a class="nav-link" href="mailto:0xe2836cb4@gmail.com">
-                    <span class="bi bi-plus-square-fill-nav-menu" aria-hidden="true"></span>
-                    Create Mail
-                </a>
-            </div>
+            </p>
         </div>
         break;
 }
 
 @code {
-
     private enum Option { None, Goldilocks, TwistedEdwards }
     private Option currentOption = Option.None;
     private string DisplayOption => currentOption switch {
-        Option.Goldilocks => "Goldilocks",
-        Option.TwistedEdwards => "Twisted Edwards",
-        _ => "Please choose how you'd like to contact me",
+        Option.Goldilocks => "my spinal tap-grade security keys",
+        Option.TwistedEdwards => "my all-day, all-purpose keys",
+        _ => "unencrypted plain text e-mail",
     };
+    private bool renderAnimation = true;
     
     private void SetOption(Option selectedOption) => currentOption = selectedOption;
+
+    private string info = string.Empty;
+    private string keys = string.Empty;
+
+    async Task CopyKeys()
+    {
+        await JSRuntime.InvokeVoidAsync("navigator.clipboard.writeText", keys);
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            await Task.Delay(1000);
+            renderAnimation = false;
+            StateHasChanged();
+        }
+    }
 }
