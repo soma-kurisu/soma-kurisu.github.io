@@ -7,15 +7,15 @@
     @((MarkupString)Styles)
 </style>
 
-<div style="height: 5rem;">
+<div style="position: relative; height: 6rem;">
     @if(renderAnimation)
     {
-        <div class="glitch" data-text="Contact">Philosophy</div>
-        <div class="glow">Philosophy</div>
+        <div class="glitch" data-text="Philosophy" style="position: absolute;">Philosophy</div>
+        <div class="glow" style="position: absolute;">Philosophy</div>
     }
     else
     {
-        <h1>Philosophy</h1>
+        <h1 style="position: absolute;">Philosophy</h1>
     }
 </div>
 
