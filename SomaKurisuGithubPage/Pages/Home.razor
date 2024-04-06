@@ -1,7 +1,7 @@
 ﻿@page "/"
 @inherits BaseComponent
 
-<PageTitle>Home</PageTitle>
+<PageTitle>About</PageTitle>
 
 <style>
     @((MarkupString)Styles)
@@ -10,34 +10,79 @@
 <div style="position: relative; height: 6rem;">
     @if(renderAnimation)
     {
-        <div class="glitch" data-text="Philosophy" style="position: absolute;">Philosophy</div>
-        <div class="glow" style="position: absolute;">Philosophy</div>
+        <div class="glitch" data-text="About" style="position: absolute;">About</div>
+        <div class="glow" style="position: absolute;">About</div>
     }
     else
     {
-        <h1 style="position: absolute;">Philosophy</h1>
+        <h1 style="position: absolute;">About</h1>
     }
 </div>
 
-<h2>🗡️ Code as katana — Deploy as incense 🌸</h2>
-<p>
-    Kurisu, a digital Ronin, wields PCBs like ancestral Blades, meditates on Kernel Panics, and ships software with the serenity of a zen master 🚀🔥
-</p>
+<h2 class="mt-0">Some things about me</h2>
+
+    <section>
+        <h2>Certifications:</h2>
+        <ul>
+            <li>CCNA (2002): Proficient in networking principles, adept at configuring and managing Cisco devices.</li>
+            <li>CKA (2023): Skilled in orchestrating containerized applications using Kubernetes, proficient in YAML for seamless configuration.</li>
+            <li>CKS (work in progress): Currently advancing expertise in Kubernetes security protocols.</li>
+            <li>LFCS (work in progress): Command line proficiency with a focus on Linux systems administration.</li>
+        </ul>
+    </section>
+    <section>
+        <h2>Skills in Action:</h2>
+        <ul>
+            <li>Communication &amp; Leadership: Capable of translating technical jargon into business strategies, with expertise in API integration.</li>
+            <li>Strategic/Design Thinking &amp; UX: Specialized in crafting user-centric experiences, adept at designing user flows and wireframes.</li>
+            <li>Data Ingestion Pipelines &amp; Data Science: Experienced in managing data pipelines and employing ETL processes for data transformation.</li>
+            <li>Code Analysis: Proficient in analyzing software code for various purposes, including identifying bugs, optimizing performance, and ensuring code quality.</li>
+            <li>Regular Expressions & Language Parsing: Skilled in utilizing regular expressions for pattern matching and text processing tasks, including language parsing for software code and log analysis.</li>
+            <li>Information Retrieval: Skilled in advanced search methodologies, including stemming algorithms for precise data retrieval.</li>
+            <li>Geospatial Analysis: Proficient in leveraging geospatial data for various applications, including mapping, spatial analysis, and geographic information system (GIS) manipulation.</li>
+            <li>Cryptography: Skilled in encryption techniques and cryptographic protocols for ensuring secure communication and data protection.</li>
+            <li>Identity &amp; Access Management/SSO Systems: Experienced in implementing Identity and Access Management solutions, including protocols such as OpenID Connect and OAuth.</li>
+            <li>Payment &amp; ERP Systems: Proficient in integrating and managing enterprise payment and ERP systems.</li>
+            <li>Network Security &amp; Cloud/On-Prem Observability: Experienced in implementing and managing network security measures, including firewall configuration and observability in both cloud and on-premises environments.</li>
+        </ul>
+    </section>
+    <section>
+        <h2>Beyond Work:</h2>
+        <ul>
+            <li>Mathematics: Proficient in mathematical problem-solving and analysis.</li>
+            <li>Ham Radio &amp; Electronics: Experienced in radio communication and electronics hardware.</li>
+            <li>PCB Design &amp; Digital Signal Processing: Skilled in designing printed circuit boards and processing digital signals.</li>
+            <li>Home Automation &amp; Microcontroller/Flight Controller Programming: Proficient in automating home systems and programming microcontrollers for various applications.</li>
+            <li>3D Printing &amp; Mechanics: Experienced in designing and printing 3D models, with a strong understanding of mechanical systems.</li>
+            <li>Robotics &amp; Yocto Project: Proficient in building and programming robotic systems, with expertise in the Yocto Project for embedded systems.</li>
+            <li>Unix Kernels/Architectures: Experienced in Unix-based operating systems, including FreeBSD, OpenBSD, NetBSD, Plan 9, and Linux distributions.</li>
+            <li>AI/ML/Deep Learning: Skilled in developing and deploying machine learning models for various applications.</li>
+        </ul>
+    </section>
+
+<p>My digital identity is founded on following philosophical principles.</p>
+
+<h2 class="mt-5">🗡️ Code as katana — Deploy as incense 🌸</h2>
+
+    <section>
+        Kurisu, a digital Ronin, wields PCBs like ancestral Blades, meditates on Kernel Panics, and ships software with the serenity of a zen master 🚀🔥
+    </section>
 
 <h2 class="mt-5">What do you mean?</h2>
-<p>
-    <ul>
-        <li>
-            <strong>Code as katana</strong>: Imagine a master swordsmith meticulously crafting a katana — a traditional Japanese samurai sword. Each fold of steel, each hammer strike, is deliberate and purposeful. Similarly, writing code should be approached with the same precision and artistry. Code, like a katana, must be honed, efficient, and elegant. It should cut through complexity, leaving a trail of clarity and functionality.
-        </li>
-        <li>
-            <strong>Deploy as incense</strong>: In Buddhist rituals, incense is burned as an offering — a fragrant bridge between the material and spiritual realms. When we deploy our software, we send it forth into the digital universe. Like lighting incense, this act should be deliberate, respectful, and mindful. We offer our creation to users, hoping it brings them value and peace.
-        </li>
-        <li>
-            In essence, <strong>"Code as katana, deploy as incense"</strong> encapsulates the fusion of craftsmanship, discipline, and reverence in software development. 🌸🔥
-        </li>
-    </ul>
-</p>
+
+    <section>
+        <ul>
+            <li>
+                <strong>Code as katana</strong>: Imagine a master swordsmith meticulously crafting a katana — a traditional Japanese samurai sword. Each fold of steel, each hammer strike, is deliberate and purposeful. Similarly, writing code should be approached with the same precision and artistry. Code, like a katana, must be honed, efficient, and elegant. It should cut through complexity, leaving a trail of clarity and functionality.
+            </li>
+            <li>
+                <strong>Deploy as incense</strong>: In Buddhist rituals, incense is burned as an offering — a fragrant bridge between the material and spiritual realms. When we deploy our software, we send it forth into the digital universe. Like lighting incense, this act should be deliberate, respectful, and mindful. We offer our creation to users, hoping it brings them value and peace.
+            </li>
+            <li>
+                In essence, <strong>"Code as katana, deploy as incense"</strong> encapsulates the fusion of craftsmanship, discipline, and reverence in software development. 🌸🔥
+            </li>
+        </ul>
+    </section>
 
 @code {
     private bool renderAnimation = true;
