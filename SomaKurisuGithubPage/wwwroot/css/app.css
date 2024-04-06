@@ -1,3 +1,13 @@
+html, body, div {
+    text-shadow: 2px 2px 6px black;
+    line-height: 4rem;
+}
+
+html, body, div {
+    text-shadow: 2px 2px 6px black;
+    line-height: 2rem;
+}
+
 html, body {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }

@@ -8,47 +8,94 @@
     @((MarkupString)Styles)
 </style>
 
-<div style="position: relative; height: 6rem;">
-    @if(renderAnimation)
-    {
-        <div class="glitch" data-text="Contact" style="position: absolute;">Contact</div>
-        <div class="glow" style="position: absolute;">Contact</div>
-    }
-    else
-    {
-        <h1 style="position: absolute;">Contact</h1>
-    }
-</div>
-
-<p>Choose how you would like to contact me</p>
-
-<div class="row">
-    <div class="col col-2">
-        <div class="nav-item">
-            <a class="nav-item px-3 @(currentOption == Option.None ? "active" : "")" @onclick="() => SetOption(Option.None)">
-                <span class="bi bi-cloud-lightning-rain-fill" aria-hidden="true"></span> Default
-            </a>
+<div class="container-fluid">
+    <div class="row mt-0">
+        <div class="col col-12 mt-0">
+            <div style="position: relative; height: 3rem; display: flex; justify-content: left; align-items: center;">
+                @if(renderAnimation)
+                {
+                    <div class="glitch" data-text="Contact">Contact</div>
+                    <div class="glow">Contact</div>
+                }
+                else
+                {
+                    <h1>Contact</h1>
+                }
+            </div>
         </div>
     </div>
-    <div class="col col-2">
-        <div class="nav-item">
-            <a class="nav-item px-3 @(currentOption == Option.Goldilocks ? "active" : "")" @onclick="() => SetOption(Option.Goldilocks)">
-                <span class="bi bi-cloud-sun-fill" aria-hidden="true"></span> Prefered
-            </a>
-        </div>
-    </div>
-    <div class="col col-2">
-        <div class="nav-item">
-            <a class="nav-item px-3 @(currentOption == Option.TwistedEdwards ? "active" : "")" @onclick="() => SetOption(Option.TwistedEdwards)">
-                <span class="bi bi-brightness-high-fill" aria-hidden="true"></span> Alternative
-            </a>
-        </div>
-    </div>
-</div>
 
-<p>Contact information for <strong>@DisplayOption</strong>.</p>
+    <div class="row">
+        <div class="col col-12">
+            <p>Choose how you would like to contact me</p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col col-2">
+            <div class="nav-item">
+                <a class="nav-item px-3 @(currentOption == Option.None ? "active" : "")" @onclick="() => SetOption(Option.None)">
+                    <span class="bi bi-cloud-lightning-rain-fill" aria-hidden="true"></span> Default
+                </a>
+            </div>
+        </div>
+        <div class="col col-2">
+            <div class="nav-item">
+                <a class="nav-item px-3 @(currentOption == Option.Goldilocks ? "active" : "")" @onclick="() => SetOption(Option.Goldilocks)">
+                    <span class="bi bi-cloud-sun-fill" aria-hidden="true"></span> Prefered
+                </a>
+            </div>
+        </div>
+        <div class="col col-2">
+            <div class="nav-item">
+                <a class="nav-item px-3 @(currentOption == Option.TwistedEdwards ? "active" : "")" @onclick="() => SetOption(Option.TwistedEdwards)">
+                    <span class="bi bi-brightness-high-fill" aria-hidden="true"></span> Alternative
+                </a>
+            </div>
+        </div>
+        <div class="col col-2">
+            <div class="nav-item">
+                <a class="nav-item px-3 @(currentOption == Option.Social ? "active" : "")" @onclick="() => SetOption(Option.Social)">
+                    <span class="bi bi-brightness-low-fill" aria-hidden="true"></span> Social
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col col-12">
+            <p>Contact information for <strong>@DisplayOption</strong>.</p>
+        </div>
+    </div>
+
 @switch(currentOption)
 {
+    case Option.Social:
+        <div class="row">
+            <div class="col col-3">
+                <p>All things ActivityPub are excitingly great, and so is Mastodon. No need to say, I prefer this handle.</p>
+            </div>
+            <div class="col col-3">
+                <div class="nav-item">
+                    <a class="nav-item px-3" href="https://hachyderm.io/@@SomaKurisu" rel="me">
+                        <span class="bi bi-mastodon" aria-hidden="true"></span> @@SomaKurisu@hachyderm.io
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col col-3">
+                <p>I should drop this.</p>
+            </div>
+            <div class="col col-3">
+                <div class="nav-item">
+                    <a class="nav-item px-3" href="https://twitter.com/SomaKurisu" rel="me">
+                        <span class="bi bi-twitter-x" aria-hidden="true"></span> @@SomaKurisu
+                    </a>
+                </div>
+            </div>
+        </div>
+        break;
     case Option.Goldilocks:
         info = @"
         sub   ed448 2024-04-01 [S] [expires: 2025-04-01]
@@ -87,36 +134,33 @@
         =W8Id
         -----END PGP PUBLIC KEY BLOCK-----
         ";
-        <div>
-            <div class="row">
-                <div class="col col-12">
-                    <p>This is my primary key. But since most keyservers and centralized code repositories still miss Goldilocks you may consider using my Twisted Edwards keys.</p>
-                    <p>Keys and expiry info</p>
-                    <pre>
-                        <code>
-                            @info                    
-
-                            @keys
-                        </code>
-                    </pre>
+        <div class="row">
+            <div class="col col-12">
+                <p>This is my primary key. But since most keyservers and centralized code repositories still miss Goldilocks you may consider using my Twisted Edwards keys.</p>
+                <p>Keys and expiry info</p>
+                <pre>
+                    <code>
+                        @info
+                        @keys
+                    </code>
+                </pre>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col col-2">
+                <div class="nav-item">
+                    <a class="nav-item px-3" href="mailto:0xe2836cb4@gmail.com?body=---fpr:BAE6417D77353009B3654BCD642D0FB4A0E21A065423573D6F14F55868938C52---">
+                        <span class="bi bi-send-fill" aria-hidden="true"></span>
+                        Create Mail
+                    </a>
                 </div>
             </div>
-            <div class="row">
-                <div class="col col-2">
-                    <div class="nav-item">
-                        <a class="nav-item px-3" href="mailto:0xe2836cb4@gmail.com?body=---fpr:BAE6417D77353009B3654BCD642D0FB4A0E21A065423573D6F14F55868938C52---">
-                            <span class="bi bi-send-fill" aria-hidden="true"></span>
-                            Create Mail
-                        </a>
-                    </div>
-                </div>
-                <div class="col col-2">
-                    <div class="nav-item">
-                        <a class="nav-item px-3" href="" @onclick="CopyKeys" @onclick:preventDefault>
-                            <span class="bi bi-copy" aria-hidden="true"></span>
-                            Copy Keys
-                        </a>
-                    </div>
+            <div class="col col-2">
+                <div class="nav-item">
+                    <a class="nav-item px-3" href="" @onclick="CopyKeys" @onclick:preventDefault>
+                        <span class="bi bi-copy" aria-hidden="true"></span>
+                        Copy Keys
+                    </a>
                 </div>
             </div>
         </div>
@@ -145,98 +189,109 @@
         =h3c4
         -----END PGP PUBLIC KEY BLOCK-----
         ";
-        <div>
-            <div class="row">
-                <div class="col col-12">
-                    <p>Most keyservers and centralized code repositories still miss Goldilocks!. So this one is still frequently used but rotates more often than my primary keys.</p>
-                    <p>
-                        Keys and expiry info you can verify on <a href="https://keys.openpgp.org/vks/v1/by-fingerprint/849A6F8F3191B1324AF5440F7C622AF19B283408">keys.openpgp.org</a>
-                    </p>
-                    <pre>
-                        <code>
-                            @info                    
-
-                            @keys
-                        </code>
-                    </pre>
+        <div class="row">
+            <div class="col col-12">
+                <p>Most keyservers and centralized code repositories still miss Goldilocks. So this one is still frequently used but rotates more often than my primary keys.</p>
+                <p class="nav-item">
+                    Keys and expiry info you can verify on <a class="nav-item px-3" href="https://keys.openpgp.org/vks/v1/by-fingerprint/849A6F8F3191B1324AF5440F7C622AF19B283408">keys.openpgp.org</a>.
+                </p>
+                <pre>
+                    <code>
+                        @info
+                        @keys
+                    </code>
+                </pre>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col col-2">
+                <div class="nav-item">
+                    <a class="nav-item px-3" href="mailto:0xe2836cb4@gmail.com?body=---fpr:849A6F8F3191B1324AF5440F7C622AF19B283408---">
+                        <span class="bi bi-send-fill" aria-hidden="true"></span>
+                        Create Mail
+                    </a>
                 </div>
             </div>
-            <div class="row">
-                <div class="col col-2">
-                    <div class="nav-item">
-                        <a class="nav-item px-3" href="mailto:0xe2836cb4@gmail.com?body=---fpr:849A6F8F3191B1324AF5440F7C622AF19B283408---">
-                            <span class="bi bi-send-fill" aria-hidden="true"></span>
-                            Create Mail
-                        </a>
-                    </div>
-                </div>
-                <div class="col col-2">
-                    <div class="nav-item">
-                        <a class="nav-item px-3" href="" @onclick="CopyKeys" @onclick:preventDefault>
-                            <span class="bi bi-copy" aria-hidden="true"></span>
-                            Copy Keys
-                        </a>
-                    </div>
+            <div class="col col-2">
+                <div class="nav-item">
+                    <a class="nav-item px-3" href="" @onclick="CopyKeys" @onclick:preventDefault>
+                        <span class="bi bi-copy" aria-hidden="true"></span>
+                        Copy Keys
+                    </a>
                 </div>
             </div>
         </div>
         break;
     default:
     case Option.None:
-        <div>
-            <h2>Contact me without any privacy</h2>
-            <div class="nav-item px-3">
-                <a class="nav-item" href="mailto:0xe2836cb4@gmail.com">
-                    <span class="bi bi-send-fill" aria-hidden="true"></span>
-                    Create Mail
-                </a>
+        <div class="row">
+            <div class="col col-12">
+                <h2>Contact me without any privacy</h2>
             </div>
-            <p>but consider securing your code with GnuPG keys</p>
-            <p>
-                As developers, safeguarding our code and communications is paramount. Enter GnuPG (GNU Privacy Guard) keys—a powerful tool for privacy and authenticity.
-                Why GnuPG?
+        </div>
+    
+        <div class="row">
+            <div class="col col-2">
+                <div class="nav-item px-3">
+                    <a class="nav-item" href="mailto:0xe2836cb4@gmail.com">
+                        <span class="bi bi-send-fill" aria-hidden="true"></span>
+                        Create Mail
+                    </a>
+                </div>
+            </div>
+        </div>
 
-                <ul>
-                    <li><strong>Encryption</strong>: Encrypt sensitive data—whether it’s configuration files, API keys, or user credentials. With GnuPG, only authorized parties can decipher the content.</li>
-                    <li><strong>Digital Signatures</strong>: Sign your commits, tags, and releases. A signed commit ensures that it originated from you, preventing tampering or unauthorized changes.</li>
-                </ul>
+        <div class="row">
+            <div class="col col-12">
+                <p>but consider securing your code with GnuPG keys</p>
+                <p>
+                    As developers, safeguarding our code and communications is paramount. Enter GnuPG (GNU Privacy Guard) keys—a powerful tool for privacy and authenticity.
+                    Why GnuPG?
 
-                <h1>Goldilocks vs. Twisted Edwards</h1>
-                <ul>
-                    <li><strong>Goldilocks</strong>: A curve with robust security properties. Unfortunately, it’s not universally supported across all channels, devices, and tools. Use it wisely.</li>
-                    <li><strong>Twisted Edwards</strong>: A pragmatic alternative. It enjoys broader compatibility and many platforms already embrace it.</li>
-                </ul>
+                    <ul>
+                        <li><strong>Encryption</strong>: Encrypt sensitive data—whether it’s configuration files, API keys, or user credentials. With GnuPG, only authorized parties can decipher the content.</li>
+                        <li><strong>Digital Signatures</strong>: Sign your commits, tags, and releases. A signed commit ensures that it originated from you, preventing tampering or unauthorized changes.</li>
+                    </ul>
 
-                <h2>Remember: Privacy is not a fairy tale—it’s a developer’s responsibility</h2> 🛡️🔐
+                    <h1>Goldilocks vs. Twisted Edwards</h1>
+                    <ul>
+                        <li><strong>Goldilocks</strong>: A curve with robust security properties. Unfortunately, it’s not universally supported across all channels, devices, and tools. Use it wisely.</li>
+                        <li><strong>Twisted Edwards</strong>: A pragmatic alternative. It enjoys broader compatibility and many platforms already embrace it.</li>
+                    </ul>
 
-                While there are numerous alternatives to GnuPG and libgcrypt, and I even advocate for SOPS in Kubernetes deployments, conservative communication between entities remains common.
+                    <h2>Remember: Privacy is not a fairy tale - it’s a developer’s responsibility</h2>
 
-                For this reason, you have several options:
+                    While there are numerous alternatives to GnuPG and libgcrypt, and I even advocate for SOPS in Kubernetes deployments, conservative communication between entities remains common.
 
-                <ul>
-                    <li>
-                        <strong>Plaintext Email</strong>: If simplicity and familiarity are your priorities, feel free to email me plaintext.
-                    </li>
+                    For this reason, you have several options:
 
-                    <li>
-                        <strong>Twisted Edwards Key</strong>: Opt for my shorter-lived, frequently rotated Twisted Edwards key. It’s a pragmatic choice with broader compatibility.
-                    </li>
+                    <ul>
+                        <li>
+                            <strong>Plaintext Email</strong>: If simplicity and familiarity are your priorities, feel free to email me plaintext.
+                        </li>
 
-                    <li>
-                        <strong>Primary Goldilocks Key</strong>: For robust security, choose my primary Goldilocks key. It offers excellent protection but may not be universally supported.
-                    </li>
-                </ul>
+                        <li>
+                            <strong>Twisted Edwards Key</strong>: Opt for my shorter-lived, frequently rotated Twisted Edwards key. It’s a pragmatic choice with broader compatibility.
+                        </li>
 
-                The choice is yours—select the key that aligns best with your needs and communication channels. 🗝️
-            </p>
+                        <li>
+                            <strong>Primary Goldilocks Key</strong>: For robust security, choose my primary Goldilocks key. It offers excellent protection but may not be universally supported.
+                        </li>
+                    </ul>
+
+                    The choice is yours. Select the key that aligns best with your needs and communication channels.
+                </p>
+            </div>
         </div>
         break;
 }
+</div>
 
 @code {
-    private enum Option { None, Goldilocks, TwistedEdwards }
-    private Option currentOption = Option.None;
+    private enum Option { None, Goldilocks, TwistedEdwards, Social }
+    private Option currentOption = Option.Social;
     private string DisplayOption => currentOption switch {
+        Option.Social => "social media handles",
         Option.Goldilocks => "my spinal tap-grade security keys",
         Option.TwistedEdwards => "my all-day, all-purpose keys",
         _ => "unencrypted plain text e-mail",
@@ -257,7 +312,7 @@
     {
         if (firstRender)
         {
-            await Task.Delay(1000);
+            await Task.Delay(600);
             renderAnimation = false;
             StateHasChanged();
         }

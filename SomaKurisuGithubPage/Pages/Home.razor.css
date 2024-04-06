@@ -1,8 +1,16 @@
+h1, h2, h3 {
+  margin-bottom: 2rem;
+}
+
+li {
+  margin-bottom: 1.6rem;
+}
+
 .glitch {
     color: white;
     position: relative;
     font-size: 2vw;
-    animation: glitch 5s 5s infinite;
+    animation: glitch .6s .6s infinite;
   }
   
   .glitch::before {
@@ -13,7 +21,7 @@
     background: transparent;
     overflow: hidden;
     top: 0;
-    animation: noise-1 3s linear infinite alternate-reverse, glitch 5s 5.05s infinite;
+    animation: noise-1 .6s linear infinite alternate-reverse, glitch .6s .6s infinite;
   }
   
   .glitch::after {
@@ -24,7 +32,7 @@
     background: transparent;
     overflow: hidden;
     top: 0;
-    animation: noise-2 3s linear infinite alternate-reverse, glitch 5s 5s infinite;
+    animation: noise-2 .6s linear infinite alternate-reverse, glitch .6s .6s infinite;
   }
   
   @keyframes glitch {
@@ -37,11 +45,9 @@
   }
   
   .glow {
-    color: white;;
-    position: relative;
+    color: white;
     font-size: 2vw;
-    animation: glitch 5s 5s infinite;
-    
+    animation: glitch .6s .6s infinite;
     text-shadow: 0 0 1000px rgb(223, 191, 191);
     color: transparent;
     position: absolute;
@@ -56,15 +62,3 @@
       transform: rotateX(0deg) skewX(0deg);
     }
   }
-  
-h1, h2, h3 {
-  margin: 2rem 0;
-}
-
-div, p {
-  margin: 1rem 0;
-}
-
-li {
-  margin: 1rem 0;
-}
