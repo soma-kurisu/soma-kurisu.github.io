@@ -11,58 +11,58 @@ li {
 }
 
 .glitch {
-    color: white;
-    position: relative;
-    font-size: 2vw;
-    animation: glitch .6s .6s infinite;
+  color: white;
+  position: relative;
+  font-size: 2vw;
+  animation: glitch .6s .6s infinite;
+}
+
+.glitch::before {
+  content: attr(data-text);
+  position: absolute;
+  left: -2px;
+  text-shadow: -5px 0 rgb(0, 255, 64);
+  background: transparent;
+  overflow: hidden;
+  top: 0;
+  animation: noise-1 .6s linear infinite alternate-reverse, glitch .6s .6s infinite;
+}
+
+.glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  left: 2px;
+  text-shadow: -5px 0 lightgreen;
+  background: transparent;
+  overflow: hidden;
+  top: 0;
+  animation: noise-2 .6s linear infinite alternate-reverse, glitch .6s .6s infinite;
+}
+
+@keyframes glitch {
+  1%{
+    transform: rotateX(10deg) skewX(90deg);
   }
-  
-  .glitch::before {
-    content: attr(data-text);
-    position: absolute;
-    left: -2px;
-    text-shadow: -5px 0 rgb(0, 255, 64);
-    background: transparent;
-    overflow: hidden;
-    top: 0;
-    animation: noise-1 .6s linear infinite alternate-reverse, glitch .6s .6s infinite;
+  2%{
+    transform: rotateX(0deg) skewX(0deg);
   }
-  
-  .glitch::after {
-    content: attr(data-text);
-    position: absolute;
-    left: 2px;
-    text-shadow: -5px 0 lightgreen;
-    background: transparent;
-    overflow: hidden;
-    top: 0;
-    animation: noise-2 .6s linear infinite alternate-reverse, glitch .6s .6s infinite;
+}
+
+.glow {
+  color: white;
+  font-size: 2vw;
+  animation: glitch .6s .6s infinite;
+  text-shadow: 0 0 1000px rgb(223, 191, 191);
+  color: transparent;
+  position: absolute;
+  top: 0;
+}
+
+@keyframes glitch-2 {
+  1%{
+    transform: rotateX(10deg) skewX(70deg);
   }
-  
-  @keyframes glitch {
-    1%{
-      transform: rotateX(10deg) skewX(90deg);
-    }
-    2%{
-      transform: rotateX(0deg) skewX(0deg);
-    }
+  2%{
+    transform: rotateX(0deg) skewX(0deg);
   }
-  
-  .glow {
-    color: white;
-    font-size: 2vw;
-    animation: glitch .6s .6s infinite;
-    text-shadow: 0 0 1000px rgb(223, 191, 191);
-    color: transparent;
-    position: absolute;
-    top: 0;
-  }
-  
-  @keyframes glitch-2 {
-    1%{
-      transform: rotateX(10deg) skewX(70deg);
-    }
-    2%{
-      transform: rotateX(0deg) skewX(0deg);
-    }
-  }
+}

@@ -62,7 +62,7 @@
         </div>
     </div>
 
-    <div class="row mt-5">
+    <div class="row mt-5 mb-3">
         <div class="col col-12">
             <p>Contact information for <strong>@DisplayOption</strong>.</p>
         </div>
@@ -71,7 +71,7 @@
 @switch(currentOption)
 {
     case Option.Social:
-        <div class="row mt-3">
+        <div class="row">
             <div class="col col-4">
                 <p>All things ActivityPub are excitingly great, and so is Mastodon. No need to say, I prefer this handle.</p>
             </div>
@@ -137,30 +137,46 @@
         <div class="row">
             <div class="col col-12">
                 <p>This is my primary key. But since most keyservers and centralized code repositories still miss Goldilocks you may consider using my Twisted Edwards keys.</p>
-                <p>Keys and expiry info</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col col-6">
                 <pre>
                     <code>
-                        @info
                         @keys
                     </code>
                 </pre>
             </div>
-        </div>
-        <div class="row">
-            <div class="col col-2">
-                <div class="nav-item">
-                    <a class="nav-item px-3" href="mailto:0xe2836cb4@gmail.com?body=---fpr:BAE6417D77353009B3654BCD642D0FB4A0E21A065423573D6F14F55868938C52---">
-                        <span class="bi bi-send-fill" aria-hidden="true"></span>
-                        Create Mail
-                    </a>
+            <div class="col col-6">
+                <div class="row">
+                    <div class="col col-12">
+                        <div class="nav-item">
+                            <a class="nav-item px-3" href="" @onclick="CopyKeys" @onclick:preventDefault>
+                                <span class="bi bi-copy" aria-hidden="true"></span>
+                                Copy Keys
+                            </a>
+                        </div>
+                        <div class="nav-item">
+                            <a class="nav-item px-3" href="mailto:0xe2836cb4@gmail.com?body=---fpr:BAE6417D77353009B3654BCD642D0FB4A0E21A065423573D6F14F55868938C52---">
+                                <span class="bi bi-send-fill" aria-hidden="true"></span>
+                                Create Mail
+                            </a>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div class="col col-2">
-                <div class="nav-item">
-                    <a class="nav-item px-3" href="" @onclick="CopyKeys" @onclick:preventDefault>
-                        <span class="bi bi-copy" aria-hidden="true"></span>
-                        Copy Keys
-                    </a>
+                <div class="row">
+                    <div class="col col-12">
+                        <p>Keys and expiry info</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col col-12">
+                        <pre>
+                            <code>
+                                @info
+                            </code>
+                        </pre>
+                    </div>
                 </div>
             </div>
         </div>
@@ -191,40 +207,56 @@
         ";
         <div class="row">
             <div class="col col-12">
-                <p>Most keyservers and centralized code repositories still miss Goldilocks. So this one is still frequently used but rotates more often than my primary keys.</p>
+                <p>Most keyservers and centralized code repositories still miss Goldilocks. So this pair of Twisted Edwards of mine is still frequently used but rotates more often than my primary keys.</p>
                 <div>
-                    Keys and expiry info you can verify on 
-                    <p class="nav-item" style="display:inline-block; line-height: 1rem; height: 1rem;">
-                        <a class="nav-item px-3" style="line-height: 1rem; height: 1rem;" href="https://keys.openpgp.org/vks/v1/by-fingerprint/849A6F8F3191B1324AF5440F7C622AF19B283408">
-                            <span class="bi bi-send-fill" aria-hidden="true"></span>
+                    You can verify keys and their expiry info on one of the various keyservers, like
+                    <p class="nav-item" style="display:inline-block;">
+                        <a class="nav-item px-3" style="display:inherit;" href="https://keys.openpgp.org/vks/v1/by-fingerprint/849A6F8F3191B1324AF5440F7C622AF19B283408">
+                            <span class="bi bi-shield-lock-fill-bg" aria-hidden="true"></span>
                             keys.openpgp.org
                         </a>.
                     </p>
                 </div>
-
+            </div>
+        </div>
+        <div class="row">
+            <div class="col col-6">
                 <pre>
                     <code>
-                        @info
                         @keys
                     </code>
                 </pre>
             </div>
-        </div>
-        <div class="row">
-            <div class="col col-2">
-                <div class="nav-item">
-                    <a class="nav-item px-3" href="mailto:0xe2836cb4@gmail.com?body=---fpr:849A6F8F3191B1324AF5440F7C622AF19B283408---">
-                        <span class="bi bi-send-fill" aria-hidden="true"></span>
-                        Create Mail
-                    </a>
+            <div class="col col-6">
+                <div class="row">
+                    <div class="col col-12">
+                        <div class="nav-item">
+                            <a class="nav-item px-3" href="" @onclick="CopyKeys" @onclick:preventDefault>
+                                <span class="bi bi-copy" aria-hidden="true"></span>
+                                Copy Keys
+                            </a>
+                        </div>
+                        <div class="nav-item">
+                            <a class="nav-item px-3" href="mailto:0xe2836cb4@gmail.com?body=---fpr:849A6F8F3191B1324AF5440F7C622AF19B283408---">
+                                <span class="bi bi-send-fill" aria-hidden="true"></span>
+                                Create Mail
+                            </a>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div class="col col-2">
-                <div class="nav-item">
-                    <a class="nav-item px-3" href="" @onclick="CopyKeys" @onclick:preventDefault>
-                        <span class="bi bi-copy" aria-hidden="true"></span>
-                        Copy Keys
-                    </a>
+                <div class="row">
+                    <div class="col col-12">
+                        <p>Keys and expiry info</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col col-12">
+                        <pre>
+                            <code>
+                                @info
+                            </code>
+                        </pre>
+                    </div>
                 </div>
             </div>
         </div>
@@ -233,35 +265,41 @@
     case Option.None:
         <div class="row">
             <div class="col col-12">
-                <h2 style="display:inline-block;">Contact me without any privacy</h2>
-                <div class="nav-item px-3" style="display:inline-block;">
-                    <a class="nav-item" href="mailto:0xe2836cb4@gmail.com">
+                <p>For all the brave-hearted cyber-martyrs out there, unirritatedly believing in the benevolence within the bioorganisms inhabiting Terra Mater, or at least show faith in the inherent goodness within human individuals, just go ahead and </p>
+                <p class="nav-item" style="display:inline-block;">
+                    <a class="nav-item px-3" style="display:inherit;" href="mailto:0xe2836cb4@gmail.com">
                         <span class="bi bi-send-fill" aria-hidden="true"></span>
-                        Create Mail
+                        drop me an unencrypted e-mail
                     </a>
-                </div>
+                </p>
+                <p style="display:inline-block;">, but then still consider securing your code with GnuPG keys.</p>
             </div>
         </div>
 
         <div class="row">
             <div class="col col-12">
-                <p>but consider securing your code with GnuPG keys</p>
                 <p>
-                    As developers, safeguarding our code and communications is paramount. Enter GnuPG (GNU Privacy Guard) keys—a powerful tool for privacy and authenticity.
+                    As developers, safeguarding our code and communications is paramount. Enter GnuPG (GNU Privacy Guard) keys - a powerful tool for privacy and authenticity.
                     Why GnuPG?
 
                     <ul>
-                        <li><strong>Encryption</strong>: Encrypt sensitive data—whether it’s configuration files, API keys, or user credentials. With GnuPG, only authorized parties can decipher the content.</li>
+                        <li><strong>Encryption</strong>: Encrypt sensitive data—whether it's configuration files, API keys, or user credentials. With GnuPG, only authorized parties can decipher the content.</li>
                         <li><strong>Digital Signatures</strong>: Sign your commits, tags, and releases. A signed commit ensures that it originated from you, preventing tampering or unauthorized changes.</li>
                     </ul>
 
-                    <h1>Goldilocks vs. Twisted Edwards</h1>
+                    <h3>Goldilocks vs. Twisted Edwards</h3>
                     <ul>
-                        <li><strong>Goldilocks</strong>: A curve with robust security properties. Unfortunately, it’s not universally supported across all channels, devices, and tools. Use it wisely.</li>
+                        <li><strong>Goldilocks</strong>: A curve with robust security properties. Unfortunately, it's not universally supported across all channels, devices, and tools. Use it wisely.</li>
                         <li><strong>Twisted Edwards</strong>: A pragmatic alternative. It enjoys broader compatibility and many platforms already embrace it.</li>
                     </ul>
 
-                    <h2>Remember: Privacy is not a fairy tale - it’s a developer’s responsibility</h2>
+                    <p>
+                        <h3>
+                            <span class="bi bi-dpad-fill-bg" aria-hidden="true"></span>
+                                Remember: Privacy is not a fairy tale - it's a developer's responsibility
+                            <span class="bi bi-dpad-fill-bg" aria-hidden="true"></span>
+                        </h3>
+                    </p>
 
                     While there are numerous alternatives to GnuPG and libgcrypt, and I even advocate for SOPS in Kubernetes deployments, conservative communication between entities remains common.
 
@@ -273,7 +311,7 @@
                         </li>
 
                         <li>
-                            <strong>Twisted Edwards Key</strong>: Opt for my shorter-lived, frequently rotated Twisted Edwards key. It’s a pragmatic choice with broader compatibility.
+                            <strong>Twisted Edwards Key</strong>: Opt for my shorter-lived, frequently rotated Twisted Edwards key. It's a pragmatic choice with broader compatibility.
                         </li>
 
                         <li>
@@ -285,6 +323,65 @@
                 </p>
             </div>
         </div>
+
+        <div class="row">
+            <div class="col col-12">
+                <h3>Let's apply the grand three properties commonly associated with GnuPG on us Devs daywork</h3>
+                <ul>
+                    <li>
+                        <strong>Confidentiality</strong>
+                        <p><strong>What It Means:</strong> Confidentiality ensures that sensitive information remains private and inaccessible to unauthorized parties. When data is encrypted using GnuPG/PGP, only authorized recipients can decrypt and access it.</p>
+                        <p><strong>Software Development Example:</strong> Imagine you're developing a web application that connects to a database. You store the database credentials (username and password) in a configuration file. To maintain confidentiality, you use GnuPG to encrypt this configuration file. Now, even if someone gains access to the file, they won't be able to decipher the credentials without the decryption key.</p>
+                        <p><strong>Container Image Example:</strong> When building a container image, you might include environment variables containing sensitive information (e.g., API keys, database connection strings). Encrypt these variables using GnuPG before adding them to the image. This way, even if the image is compromised, the sensitive data remains confidential.</p>
+                    </li>
+                    <li>
+                        <strong>Integrity</strong>
+                        <p><strong>What It Means:</strong> Integrity ensures that data remains unchanged and unaltered during transmission or storage. GnuPG/PGP achieves this through digital signatures, which verify the authenticity and integrity of files.</p>
+                        <p><strong>Software Development Example:</strong> Suppose you're distributing a software release package. Before sharing it, sign the package using your GnuPG private key. Recipients can verify the package's integrity by checking the digital signature against your public key. If the package has been tampered with, the signature won't match, alerting users to potential issues.</p>
+                        <p><strong>Container Image Example:</strong> When pushing a container image to a registry, sign it with your GnuPG key. Users pulling the image can verify its integrity using your public key. If the image has been modified (perhaps due to a security breach), the signature won't validate, preventing its use.</p>
+                    </li>
+                    <li>
+                        <strong>Authenticity</strong>
+                        <p><strong>What It Means:</strong> Authenticity verifies the identity of the sender and ensures that the received data or software originates from a trusted source. In software development and container images, authenticity ensures that the code or image is from a legitimate source and has not been tampered with by malicious actors.</p>
+                        <p><strong>Software Development Example:</strong> In an open-source project, developers sign their commits using GnuPG keys. This authenticates their contributions and establishes trust within the community. Users can verify the authorship of code changes by checking the commit signatures.</p>
+                        <p><strong>Container Image Example:</strong> When pulling a container image, verify its authenticity by checking the image's signature against the author's GnuPG key. If the image is signed by a trusted entity (e.g., the official repository maintainer), you can be confident in its origin.</p>
+                    </li>
+                </ul>
+                    
+                <p>Remember that managing GnuPG keys is crucial. Keep your private key secure, and share your public key widely to enable others to verify your signatures. By incorporating these properties, GnuPG enhances security across various software-related contexts!</p>
+
+                <h3>GnuPG and SOPS: Secure Key Management</h3>
+
+                <section>
+                    <strong>Key Management Best Practices</strong>
+                    <p>Effective key management is crucial for maintaining the security and integrity of cryptographic systems like GnuPG and PGP. Here are some best practices:</p>
+                    <ul>
+                    <li><strong>Use Strong Passphrases:</strong> Ensure that your private keys are protected by strong passphrases. A passphrase should be lengthy, complex, and unique.</li>
+                    <li><strong>Regularly Rotate Keys:</strong> Periodically rotate your keys, especially if they're used in critical systems or if there's a chance they've been compromised. This minimizes the impact of a potential breach.</li>
+                    <li><strong>Secure Key Storage:</strong> Store your private keys securely, preferably in a hardware security module (HSM) or a secure key management service. Avoid storing keys on vulnerable or shared systems.</li>
+                    <li><strong>Backup Keys:</strong> Regularly backup your keys and securely store the backups offline. This ensures that you can recover your keys in case of loss or hardware failure.</li>
+                    <li><strong>Implement Key Revocation:</strong> Have a process in place for revoking compromised or unused keys. This prevents unauthorized use of keys that may have been compromised.</li>
+                    <li><strong>Regular Audits:</strong> Perform regular audits of key usage and access permissions to detect any anomalies or unauthorized activities.</li>
+                    <li><strong>Key Separation:</strong> Consider separating keys for different purposes (e.g., signing keys, encryption keys) to minimize the impact of a compromise.</li>
+                    </ul>
+                </section>
+                <section>
+                    <strong>Integration of GnuPG and SOPS in CI/CD Pipelines</strong>
+                    <p>GnuPG and SOPS provide a robust and secure solution for managing secrets and sensitive data in CI/CD pipelines, offering an alternative to cloud-based key management solutions. Here's how you can leverage them effectively:</p>
+                    <ul>
+                    <li><strong>Control Over Key Management:</strong> With GnuPG and SOPS, you have full control over key generation, storage, and access. You're not reliant on third-party cloud providers for key management, reducing potential dependencies and security risks associated with cloud services.</li>
+                    <li><strong>End-to-End Encryption:</strong> GnuPG and SOPS enable end-to-end encryption of secrets and sensitive data throughout your CI/CD pipelines. This ensures that your secrets remain encrypted at rest and in transit, providing strong protection against unauthorized access or data breaches.</li>
+                    <li><strong>Customizable Security Policies:</strong> You can tailor security policies and access controls according to your specific requirements when using GnuPG and SOPS. This flexibility allows you to enforce granular access permissions and encryption standards that align with your organization's security policies and compliance requirements.</li>
+                    <li><strong>Offline Key Storage:</strong> GnuPG supports offline key storage options, such as hardware security modules (HSMs) or air-gapped systems, providing an additional layer of protection against online threats and unauthorized access.</li>
+                    <li><strong>Cost-Efficiency:</strong> By leveraging GnuPG and SOPS for key management in CI/CD pipelines, you can potentially reduce operational costs associated with cloud-based key management solutions, as there are no subscription fees or usage charges for using open-source software.</li>
+                    <li><strong>Community Support and Transparency:</strong> GnuPG and SOPS benefit from active community support and undergo regular security audits, ensuring transparency and reliability in their implementation. This fosters trust and confidence in the security of your CI/CD pipelines and secret management practices.</li>
+                    </ul>
+                    <p>By adopting GnuPG and SOPS in your CI/CD pipelines, you can achieve robust and secure secret management capabilities without relying on cloud-based key management solutions, offering greater control, flexibility, and cost-efficiency for your organization's security needs.</p>
+                </section>
+
+                <p>I'm already getting overly enthusiastic again. We have to stop here. This is just a Contact page and not a Techromancenovell.</p>
+            </div>
+        </div>
         break;
 }
 </div>
@@ -293,7 +390,7 @@
     private enum Option { None, Goldilocks, TwistedEdwards, Social }
     private Option currentOption = Option.Social;
     private string DisplayOption => currentOption switch {
-        Option.Social => "social media handles",
+        Option.Social => "my social media handles",
         Option.Goldilocks => "my spinal tap-grade security keys",
         Option.TwistedEdwards => "my all-day, all-purpose keys",
         _ => "unencrypted plain text e-mail",
