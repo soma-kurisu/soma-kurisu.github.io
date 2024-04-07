@@ -19,19 +19,19 @@
                 }
                 else
                 {
-                    <h1>Contact</h1>
+                    <h1 style="margin: 0;">Contact</h1>
                 }
             </div>
         </div>
     </div>
 
-    <div class="row">
+    <div class="row mt-1">
         <div class="col col-12">
             <p>Choose how you would like to contact me</p>
         </div>
     </div>
 
-    <div class="row">
+    <div class="row mt-5">
         <div class="col col-2">
             <div class="nav-item">
                 <a class="nav-item px-3 @(currentOption == Option.None ? "active" : "")" @onclick="() => SetOption(Option.None)">
@@ -41,15 +41,15 @@
         </div>
         <div class="col col-2">
             <div class="nav-item">
-                <a class="nav-item px-3 @(currentOption == Option.Goldilocks ? "active" : "")" @onclick="() => SetOption(Option.Goldilocks)">
-                    <span class="bi bi-cloud-sun-fill" aria-hidden="true"></span> Prefered
+                <a class="nav-item px-3 @(currentOption == Option.TwistedEdwards ? "active" : "")" @onclick="() => SetOption(Option.TwistedEdwards)">
+                    <span class="bi bi-cloud-sun-fill" aria-hidden="true"></span> Alternative
                 </a>
             </div>
         </div>
         <div class="col col-2">
             <div class="nav-item">
-                <a class="nav-item px-3 @(currentOption == Option.TwistedEdwards ? "active" : "")" @onclick="() => SetOption(Option.TwistedEdwards)">
-                    <span class="bi bi-brightness-high-fill" aria-hidden="true"></span> Alternative
+                <a class="nav-item px-3 @(currentOption == Option.Goldilocks ? "active" : "")" @onclick="() => SetOption(Option.Goldilocks)">
+                    <span class="bi bi-brightness-high-fill" aria-hidden="true"></span> Prefered
                 </a>
             </div>
         </div>
@@ -62,7 +62,7 @@
         </div>
     </div>
 
-    <div class="row">
+    <div class="row mt-5">
         <div class="col col-12">
             <p>Contact information for <strong>@DisplayOption</strong>.</p>
         </div>
@@ -71,11 +71,11 @@
 @switch(currentOption)
 {
     case Option.Social:
-        <div class="row">
-            <div class="col col-3">
+        <div class="row mt-3">
+            <div class="col col-4">
                 <p>All things ActivityPub are excitingly great, and so is Mastodon. No need to say, I prefer this handle.</p>
             </div>
-            <div class="col col-3">
+            <div class="col col-4">
                 <div class="nav-item">
                     <a class="nav-item px-3" href="https://hachyderm.io/@@SomaKurisu" rel="me">
                         <span class="bi bi-mastodon" aria-hidden="true"></span> @@SomaKurisu@hachyderm.io
@@ -83,11 +83,11 @@
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col col-3">
-                <p>I should drop this.</p>
+        <div class="row mt-3">
+            <div class="col col-4">
+                <p>Sooner or later I'm gonna drop this identity for sure.</p>
             </div>
-            <div class="col col-3">
+            <div class="col col-4">
                 <div class="nav-item">
                     <a class="nav-item px-3" href="https://twitter.com/SomaKurisu" rel="me">
                         <span class="bi bi-twitter-x" aria-hidden="true"></span> @@SomaKurisu
@@ -192,9 +192,16 @@
         <div class="row">
             <div class="col col-12">
                 <p>Most keyservers and centralized code repositories still miss Goldilocks. So this one is still frequently used but rotates more often than my primary keys.</p>
-                <p class="nav-item">
-                    Keys and expiry info you can verify on <a class="nav-item px-3" href="https://keys.openpgp.org/vks/v1/by-fingerprint/849A6F8F3191B1324AF5440F7C622AF19B283408">keys.openpgp.org</a>.
-                </p>
+                <div>
+                    Keys and expiry info you can verify on 
+                    <p class="nav-item" style="display:inline-block; line-height: 1rem; height: 1rem;">
+                        <a class="nav-item px-3" style="line-height: 1rem; height: 1rem;" href="https://keys.openpgp.org/vks/v1/by-fingerprint/849A6F8F3191B1324AF5440F7C622AF19B283408">
+                            <span class="bi bi-send-fill" aria-hidden="true"></span>
+                            keys.openpgp.org
+                        </a>.
+                    </p>
+                </div>
+
                 <pre>
                     <code>
                         @info
@@ -226,13 +233,8 @@
     case Option.None:
         <div class="row">
             <div class="col col-12">
-                <h2>Contact me without any privacy</h2>
-            </div>
-        </div>
-    
-        <div class="row">
-            <div class="col col-2">
-                <div class="nav-item px-3">
+                <h2 style="display:inline-block;">Contact me without any privacy</h2>
+                <div class="nav-item px-3" style="display:inline-block;">
                     <a class="nav-item" href="mailto:0xe2836cb4@gmail.com">
                         <span class="bi bi-send-fill" aria-hidden="true"></span>
                         Create Mail
