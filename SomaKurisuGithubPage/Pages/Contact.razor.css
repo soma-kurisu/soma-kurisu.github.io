@@ -161,6 +161,8 @@ li {
         display: flex;
         align-items: center;
         line-height: 3rem;
+        text-decoration: none;
+        font-size: large;
     }
 
 .nav-item ::deep a.active {
