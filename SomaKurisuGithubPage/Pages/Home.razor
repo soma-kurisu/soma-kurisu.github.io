@@ -13,8 +13,8 @@
             <div style="position: relative; height: 3rem; display: flex; justify-content: left; align-items: center;">
                 @if (renderAnimation)
                 {
-                    <div class="glitch" data-text="About Kurisu">About Kurisu</div>
-                    <div class="glow">About Kurisu</div>
+                    <div class="glitch" data-text="🌸">🌸</div>
+                    <div class="glow">🌸</div>
                 }
                 else
                 {
@@ -46,7 +46,7 @@
                 <p>
                     In my lifelong career, I utilized every opportunity to gain proficiency in various disciplines and playfields.
                 </p>
-                <h3>Skills in Action</h3>
+                <h3 class="mt-1">Skills in Action</h3>
                 <ul>
                     <li>Architect, Develop, Analyse &amp; ship Code: Proficient in architecting quality software solutions targeting various domains including stakeholders in government and industry.</li>
                     <li>Data Management, Database Design, Data Ingestion Pipelines &amp; Data Science: Proficient in managing all things data including data pipelines and employing ETL processes for data transformation and reporting.</li>
@@ -62,7 +62,7 @@
                 </ul>
             </section>
             <section>
-                <h3>Beyond Wage Work</h3>
+                <h3 class="mt-5">Beyond Wage Work</h3>
                 <ul>
                     <li>Mathematics: Skilled in mathematical problem-solving and analysis.</li>
                     <li>Ham Radio &amp; Electronics: Skilled in radio communication and electronics hardware.</li>
@@ -75,7 +75,7 @@
                 </ul>
             </section>
             <section>
-                <h3>Certifications</h3>
+                <h3 class="mt-5">Certifications</h3>
                 <ul>
                     <li>CCNA (2002): Proficient in networking principles, adept at configuring and managing Cisco devices.</li>
                     <li>CKA (2023): Proficient in orchestrating containerized applications using Kubernetes, proficient in YAML for seamless configuration.</li>
@@ -89,7 +89,7 @@
         <div class="col col-12">
             <p>My digital identity is founded on following philosophical principles.</p>
 
-            <h2 class="mt-5">🗡️ Code as katana - Deploy as incense 🌸</h2>
+            <h2 class="mt-1">🗡️ Code as katana - Deploy as incense 🌸</h2>
 
             <section>
                 Kurisu, a digital Ronin, wields PCBs like ancestral Blades, meditates on Kernel Panics, and ships software with the serenity of a zen master.
@@ -121,7 +121,7 @@
     {
         if (firstRender)
         {
-            await Task.Delay(600);
+            await Task.Delay(55);
             renderAnimation = false;
             StateHasChanged();
         }

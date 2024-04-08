@@ -31,13 +31,12 @@ public class LazyLoader
     {
         try
         {
-            /* lazy load component-specific assemblies by name, e.g.:
-                if (path == "counter")
-                {
-                    var assemblies = await _lazyAssemblyLoader.LoadAssembliesAsync(new[] { "CounterPage.dll" });
-                    AdditionalAssemblies.AddRange(assemblies);
-                }
-            */
+            // lazy load component-specific assemblies by name, e.g.:
+            if (path == "lazy-component")
+            {
+                var assemblies = await _lazyAssemblyLoader.LoadAssembliesAsync(new[] { "LazyComponent.dll" });
+                AdditionalAssemblies.AddRange(assemblies);
+            }
         }
         catch (Exception ex)
         {

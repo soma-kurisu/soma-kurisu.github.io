@@ -14,8 +14,8 @@
             <div style="position: relative; height: 3rem; display: flex; justify-content: left; align-items: center;">
                 @if(renderAnimation)
                 {
-                    <div class="glitch" data-text="Contact">Contact</div>
-                    <div class="glow">Contact</div>
+                    <div class="glitch" data-text="🌸">🌸</div>
+                    <div class="glow">🌸</div>
                 }
                 else
                 {
@@ -103,6 +103,18 @@
                 <div class="nav-item">
                     <a class="nav-item px-3" href="https://twitter.com/SomaKurisu" rel="me">
                         <span class="bi bi-twitter-x" aria-hidden="true"></span> @@SomaKurisu
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col col-4">
+                <p>Sooner or later I'm gonna drop this identity for sure.</p>
+            </div>
+            <div class="col col-auto">
+                <div class="nav-item">
+                    <a class="nav-item px-3" href="https://www.linkedin.com/in/soma-kurisu/" rel="me">
+                        <span class="bi bi-linkedin" aria-hidden="true"></span> in/soma-kurisu
                     </a>
                 </div>
             </div>
@@ -290,7 +302,7 @@
             </div>
         </div>
 
-        <div class="row">
+        <div class="row mt-5">
             <div class="col col-12">
                 <p>
                     As developers, safeguarding our code and communications is paramount. Enter GnuPG (GNU Privacy Guard) keys - a powerful tool for privacy and authenticity.
@@ -301,23 +313,26 @@
                         <li><strong>Digital Signatures</strong>: Sign your commits, tags, and releases. A signed commit ensures that it originated from you, preventing tampering or unauthorized changes.</li>
                     </ul>
 
-                    <h3>Goldilocks vs. Twisted Edwards</h3>
+                    <h3 class="mt-5">Goldilocks vs. Twisted Edwards</h3>
                     <ul>
                         <li><strong>Goldilocks</strong>: A curve with robust security properties. Unfortunately, it's not universally supported across all channels, devices, and tools. Use it wisely.</li>
                         <li><strong>Twisted Edwards</strong>: A pragmatic alternative. It enjoys broader compatibility and many platforms already embrace it.</li>
                     </ul>
 
                     <p>
-                        <h3>
+                        <h3 class="mt-5">
                             <span class="bi bi-fullscreen" aria-hidden="true"></span>
                                 Remember: Privacy is not a fairy tale - it's a developer's responsibility
-                            <span class="bi bi-fullscreen" aria-hidden="true"></span>
                         </h3>
                     </p>
 
-                    While there are numerous alternatives to GnuPG and libgcrypt, and I even advocate for SOPS in Kubernetes deployments, conservative communication between entities remains common.
+                    <p>
+                        <h3 class="mt-5">
+                            While there are numerous alternatives to GnuPG and libgcrypt, and I even advocate for SOPS in Kubernetes deployments, conservative communication between entities remains common.
 
-                    For this reason, you have several options:
+                            For this reason, you have several options:
+                        </h3>
+                    </p>
 
                     <ul>
                         <li>
@@ -338,7 +353,7 @@
             </div>
         </div>
 
-        <div class="row">
+        <div class="row mt-5">
             <div class="col col-12">
                 <h3>Let's apply the grand three properties commonly associated with GnuPG on us Devs daywork</h3>
                 <ul>
@@ -362,12 +377,17 @@
                     </li>
                 </ul>
                     
-                <p>Remember that managing GnuPG keys is crucial. Keep your private key secure, and share your public key widely to enable others to verify your signatures. By incorporating these properties, GnuPG enhances security across various software-related contexts!</p>
+                <p>
+                    <h3 class="mt-5">
+                        <span class="bi bi-fullscreen" aria-hidden="true"></span>
+                            Remember that managing GnuPG keys is crucial. Keep your private key secure, and share your public key widely to enable others to verify your signatures. By incorporating these properties, GnuPG enhances security across various software-related contexts!
+                    </h3>
+                </p>
 
-                <h3>GnuPG and SOPS: Secure Key Management</h3>
+                <h2 class="mt-5">GnuPG and SOPS: Secure Key Management</h2>
 
                 <section>
-                    <strong>Key Management Best Practices</strong>
+                    <h3 class="mt-5">Key Management Best Practices</h3>
                     <p>Effective key management is crucial for maintaining the security and integrity of cryptographic systems like GnuPG and PGP. Here are some best practices:</p>
                     <ul>
                     <li><strong>Use Strong Passphrases:</strong> Ensure that your private keys are protected by strong passphrases. A passphrase should be lengthy, complex, and unique.</li>
@@ -380,7 +400,7 @@
                     </ul>
                 </section>
                 <section>
-                    <strong>Integration of GnuPG and SOPS in CI/CD Pipelines</strong>
+                    <h3 class="mt-5">Integration of GnuPG and SOPS in CI/CD Pipelines</h3>
                     <p>GnuPG and SOPS provide a robust and secure solution for managing secrets and sensitive data in CI/CD pipelines, offering an alternative to cloud-based key management solutions. Here's how you can leverage them effectively:</p>
                     <ul>
                     <li><strong>Control Over Key Management:</strong> With GnuPG and SOPS, you have full control over key generation, storage, and access. You're not reliant on third-party cloud providers for key management, reducing potential dependencies and security risks associated with cloud services.</li>
@@ -393,7 +413,12 @@
                     <p>By adopting GnuPG and SOPS in your CI/CD pipelines, you can achieve robust and secure secret management capabilities without relying on cloud-based key management solutions, offering greater control, flexibility, and cost-efficiency for your organization's security needs.</p>
                 </section>
 
-                <p>I'm already getting overly enthusiastic again. We have to stop here. This is just a Contact page and not a Techromancenovell.</p>
+                <p>
+                    <h3 class="mt-5">
+                        <span class="bi bi-fullscreen" aria-hidden="true"></span>
+                        I'm already getting overly enthusiastic again. We have to stop here. This is just a Contact page and not a Techromancenovell.
+                    </h3>
+                </p>
             </div>
         </div>
         break;
@@ -425,7 +450,7 @@
     {
         if (firstRender)
         {
-            await Task.Delay(600);
+            await Task.Delay(55);
             renderAnimation = false;
             StateHasChanged();
         }
