@@ -1,7 +1,7 @@
 ﻿@page "/"
 @inherits BaseComponent
 
-<PageTitle>About</PageTitle>
+<PageTitle>About Kurisu</PageTitle>
 
 <style>
     @((MarkupString)Styles)
@@ -13,12 +13,12 @@
             <div style="position: relative; height: 3rem; display: flex; justify-content: left; align-items: center;">
                 @if (renderAnimation)
                 {
-                    <div class="glitch" data-text="About">About</div>
-                    <div class="glow">About</div>
+                    <div class="glitch" data-text="About Kurisu">About Kurisu</div>
+                    <div class="glow">About Kurisu</div>
                 }
                 else
                 {
-                    <h1 style="margin: 0;">About</h1>
+                    <h1 style="margin: 0;">About Kurisu</h1>
                 }
             </div>
         </div>
@@ -26,54 +26,66 @@
 
     <div class="row mt-1">
         <div class="col col-12">
-            <p>Some things about me</p>
+            <p>Some facts about myself</p>
         </div>
     </div>
 
     <div class="row mt-5">
         <div class="col col-12">
+            <p>
+                My day-to-day work as a seasoned software engineer is fundamentally rooted in .NET since its inception. When Kubernetes was open-sourced and began gaining traction, I shifted my focus from a previous curiosity about all things frontend, opened up my wholehearted passion for the BSDs, and utilized my already prevailing skills on the Azure Cloud and HashiCorp Stack to become a Linux and Kubernetes Guru - I truly do meditate on them and even more in tech.
+            </p>
+            <p>
+                Since I started my personal journey in tech, unraveling these great mysteries in one's life's odyssey, I jumped in to educate my bros and sis's in arms of each newly championed wizardry, transforming how we do stuff where I see fit.
+            </p>
+        </div>
+    </div>
+    <div class="row mt-5">
+        <div class="col col-12">
+            <section>
+                <p>
+                    In my lifelong career, I utilized every opportunity to gain proficiency in various disciplines and playfields.
+                </p>
+                <h3>Skills in Action</h3>
+                <ul>
+                    <li>Architect, Develop, Analyse &amp; ship Code: Proficient in architecting quality software solutions targeting various domains including stakeholders in government and industry.</li>
+                    <li>Data Management, Database Design, Data Ingestion Pipelines &amp; Data Science: Proficient in managing all things data including data pipelines and employing ETL processes for data transformation and reporting.</li>
+                    <li>Language Design and Parsing: Experienced in parser generators (especially ANTLR), utilizing regular expressions for pattern matching and text processing tasks, including language parsing for software code and log analysis.</li>
+                    <li>Information Retrieval: Skilled in advanced search methodologies, including stemming algorithms for precise data retrieval.</li>
+                    <li>Geospatial Analysis: Skilled in leveraging geospatial data for various applications, including mapping, spatial analysis, and geographic information system manipulation (mainly focussing QGIS/Quantum GIS).</li>
+                    <li>Cryptography: Skilled in encryption techniques and cryptographic protocols for ensuring secure communication and data protection (including Cloud Vaults, SOPS, GnuPG, libgcrypt and libsodium, OpenSSL and OpenSSH).</li>
+                    <li>Identity &amp; Access Management/SSO Systems: Experienced in implementing Identity and Access Management solutions, including protocols such as OpenID Connect and OAuth.</li>
+                    <li>Payment &amp; ERP Systems: Proficient in integrating and managing enterprise payment and ERP systems.</li>
+                    <li>Network Design, Security &amp; Cloud/On-Prem Observability: Experienced in implementing and managing network security measures, including firewall configuration and observability in both cloud and on-premises environments (including debugging tools like WireShark/tcpdump, dig/nslookup, ip, and netcat).</li>
+                    <li>Strategic/Design Thinking &amp; UX: Experienced in crafting user-centric experiences, adept at designing user flows and wireframes.</li>
+                    <li>Communication &amp; Leadership: Capable of translating technical jargon into business strategies, with expertise in API integration.</li>
+                </ul>
+            </section>
+            <section>
+                <h3>Beyond Wage Work</h3>
+                <ul>
+                    <li>Mathematics: Skilled in mathematical problem-solving and analysis.</li>
+                    <li>Ham Radio &amp; Electronics: Skilled in radio communication and electronics hardware.</li>
+                    <li>PCB Design &amp; Digital Signal Processing: Skilled in designing printed circuit boards and processing digital signals.</li>
+                    <li>Home Automation &amp; Microcontroller/Flight Controller Programming: Skilled in automating home systems and programming microcontrollers for various applications.</li>
+                    <li>3D Printing &amp; Mechanics: Skilled in designing and printing 3D models, with a strong understanding of mechanical systems.</li>
+                    <li>Robotics &amp; Yocto Project: Skilled in building and programming robotic systems, with expertise in the Yocto Project for embedded systems.</li>
+                    <li>Unix Kernels/Architectures: Skilled in Unix-based operating systems, including FreeBSD, OpenBSD, NetBSD, Plan 9, and Linux distributions.</li>
+                    <li>AI/ML/Deep Learning: Skilled in developing and deploying machine learning models for various applications.</li>
+                </ul>
+            </section>
             <section>
                 <h3>Certifications</h3>
                 <ul>
                     <li>CCNA (2002): Proficient in networking principles, adept at configuring and managing Cisco devices.</li>
-                    <li>CKA (2023): Skilled in orchestrating containerized applications using Kubernetes, proficient in YAML for seamless configuration.</li>
+                    <li>CKA (2023): Proficient in orchestrating containerized applications using Kubernetes, proficient in YAML for seamless configuration.</li>
                     <li>CKS (work in progress): Currently advancing expertise in Kubernetes security protocols.</li>
                     <li>LFCS (work in progress): Command line proficiency with a focus on Linux systems administration.</li>
                 </ul>
             </section>
-            <section>
-                <h3>Skills in Action</h3>
-                <ul>
-                    <li>Communication &amp; Leadership: Capable of translating technical jargon into business strategies, with expertise in API integration.</li>
-                    <li>Strategic/Design Thinking &amp; UX: Specialized in crafting user-centric experiences, adept at designing user flows and wireframes.</li>
-                    <li>Data Ingestion Pipelines &amp; Data Science: Experienced in managing data pipelines and employing ETL processes for data transformation.</li>
-                    <li>Code Analysis: Proficient in analyzing software code for various purposes, including identifying bugs, optimizing performance, and ensuring code quality.</li>
-                    <li>Regular Expressions & Language Parsing: Skilled in utilizing regular expressions for pattern matching and text processing tasks, including language parsing for software code and log analysis.</li>
-                    <li>Information Retrieval: Skilled in advanced search methodologies, including stemming algorithms for precise data retrieval.</li>
-                    <li>Geospatial Analysis: Proficient in leveraging geospatial data for various applications, including mapping, spatial analysis, and geographic information system (GIS) manipulation.</li>
-                    <li>Cryptography: Skilled in encryption techniques and cryptographic protocols for ensuring secure communication and data protection.</li>
-                    <li>Identity &amp; Access Management/SSO Systems: Experienced in implementing Identity and Access Management solutions, including protocols such as OpenID Connect and OAuth.</li>
-                    <li>Payment &amp; ERP Systems: Proficient in integrating and managing enterprise payment and ERP systems.</li>
-                    <li>Network Security &amp; Cloud/On-Prem Observability: Experienced in implementing and managing network security measures, including firewall configuration and observability in both cloud and on-premises environments.</li>
-                </ul>
-            </section>
-            <section>
-                <h3>Beyond Work</h3>
-                <ul>
-                    <li>Mathematics: Proficient in mathematical problem-solving and analysis.</li>
-                    <li>Ham Radio &amp; Electronics: Experienced in radio communication and electronics hardware.</li>
-                    <li>PCB Design &amp; Digital Signal Processing: Skilled in designing printed circuit boards and processing digital signals.</li>
-                    <li>Home Automation &amp; Microcontroller/Flight Controller Programming: Proficient in automating home systems and programming microcontrollers for various applications.</li>
-                    <li>3D Printing &amp; Mechanics: Experienced in designing and printing 3D models, with a strong understanding of mechanical systems.</li>
-                    <li>Robotics &amp; Yocto Project: Proficient in building and programming robotic systems, with expertise in the Yocto Project for embedded systems.</li>
-                    <li>Unix Kernels/Architectures: Experienced in Unix-based operating systems, including FreeBSD, OpenBSD, NetBSD, Plan 9, and Linux distributions.</li>
-                    <li>AI/ML/Deep Learning: Skilled in developing and deploying machine learning models for various applications.</li>
-                </ul>
-            </section>
         </div>
     </div>
-
-    <div class="row">
+    <div class="row mt-5">
         <div class="col col-12">
             <p>My digital identity is founded on following philosophical principles.</p>
 
@@ -88,10 +100,10 @@
             <section>
                 <ul>
                     <li>
-                        <strong>Code as katana</strong>: Imagine a master swordsmith meticulously crafting a katana — a traditional Japanese samurai sword. Each fold of steel, each hammer strike, is deliberate and purposeful. Similarly, writing code should be approached with the same precision and artistry. Code, like a katana, must be honed, efficient, and elegant. It should cut through complexity, leaving a trail of clarity and functionality.
+                        <strong>Code as katana</strong>: Imagine a master swordsmith meticulously crafting a katana - a traditional Japanese samurai sword. Each fold of steel, each hammer strike, is deliberate and purposeful. Similarly, writing code should be approached with the same precision and artistry. Code, like a katana, must be honed, efficient, and elegant. It should cut through complexity, leaving a trail of clarity and functionality.
                     </li>
                     <li>
-                        <strong>Deploy as incense</strong>: In Buddhist rituals, incense is burned as an offering — a fragrant bridge between the material and spiritual realms. When we deploy our software, we send it forth into the digital universe. Like lighting incense, this act should be deliberate, respectful, and mindful. We offer our creation to users, hoping it brings them value and peace.
+                        <strong>Deploy as incense</strong>: In Buddhist rituals, incense is burned as an offering - a fragrant bridge between the material and spiritual realms. When we deploy our software, we send it forth into the digital universe. Like lighting incense, this act should be deliberate, respectful, and mindful. We offer our creation to users, hoping it brings them value and peace.
                     </li>
                     <li>
                         In essence, <strong>"Code as katana, deploy as incense"</strong> encapsulates the fusion of craftsmanship, discipline, and reverence in software development.
