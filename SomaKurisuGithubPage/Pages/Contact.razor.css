@@ -206,3 +206,34 @@ li {
         overflow-y: auto;
     }
 }
+
+/***
+* https://www.svgrepo.com/collection/japan-12/
+***/
+
+.katana-bg {
+  background-image: url('image/katana.svg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: inline-block;
+  min-height: 2rem;
+  min-width: 2rem;
+}
+
+.incense-bg {
+  background-image: url('image/incense.svg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: inline-block;
+  min-height: 2rem;
+  min-width: 2rem;
+}
+
+.ninja-bg {
+  background-image: url('image/ninja.svg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: inline-block;
+  min-height: 2rem;
+  min-width: 2rem;
+}
