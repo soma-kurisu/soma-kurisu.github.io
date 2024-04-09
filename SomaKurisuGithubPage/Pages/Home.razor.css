@@ -66,3 +66,21 @@ li {
     transform: rotateX(0deg) skewX(0deg);
   }
 }
+
+.katana-bg {
+  background-image: url('image/katana.svg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 1.5rem;
+  min-width: 1.3rem;
+  margin-right: 1rem;
+}
+
+.incense-bg {
+  background-image: url('image/incense.svg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 1.5rem;
+  min-width: 1.3rem;
+  margin-right: 1rem;
+}
