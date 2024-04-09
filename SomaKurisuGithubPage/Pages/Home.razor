@@ -13,8 +13,9 @@
             <div style="position: relative; height: 3rem; display: flex; justify-content: left; align-items: center;">
                 @if (renderAnimation)
                 {
-                    <div class="glitch" data-text="🌸">🌸</div>
-                    <div class="glow">🌸</div>
+                    <h1 style="margin: 0;">About Kurisu</h1>
+                    <div style="display:inline-block;" class="glitch" data-text="🌸">🌸</div>
+                    <div style="display:inline-block;" class="glow">🌸</div>
                 }
                 else
                 {
@@ -33,7 +34,7 @@
     <div class="row mt-5">
         <div class="col col-12">
             <p>
-                My day-to-day work as a seasoned software engineer is fundamentally rooted in .NET since its inception. When Kubernetes was open-sourced and began gaining traction, I shifted my focus from a previous curiosity about all things frontend, opened up my wholehearted passion for the BSDs, and utilized my already prevailing skills on the Azure Cloud and HashiCorp Stack to become a Linux and Kubernetes Guru - I truly do meditate on them and even more in tech.
+                My day-to-day work as a seasoned software engineer is fundamentally rooted in .NET since its inception. When Kubernetes was open-sourced and began gaining traction, I shifted my focus from a previous curiosity about all things frontend, opened up my wholehearted passion for the BSDs, and utilized my already prevailing skills on the Azure Cloud and HashiCorp Stack to become a Linux and Kubernetes Guru - I truly do meditate on them {*_*} and even more in tech {o_O}
             </p>
             <p>
                 Since I started my personal journey in tech, unraveling these great mysteries in one's life's odyssey, I jumped in to educate my bros and sis's in arms of each newly championed wizardry, transforming how we do stuff where I see fit.
@@ -48,7 +49,7 @@
                 </p>
                 <h3 class="mt-1">Skills in Action</h3>
                 <ul>
-                    <li>Architect, Develop, Analyse &amp; ship Code: Proficient in architecting quality software solutions targeting various domains including stakeholders in government and industry.</li>
+                    <li>Architect, Develop, Analyse &amp; Ship Code: Proficient in architecting quality software solutions targeting various domains including stakeholders from government and industry.</li>
                     <li>Data Management, Database Design, Data Ingestion Pipelines &amp; Data Science: Proficient in managing all things data including data pipelines and employing ETL processes for data transformation and reporting.</li>
                     <li>Language Design and Parsing: Experienced in parser generators (especially ANTLR), utilizing regular expressions for pattern matching and text processing tasks, including language parsing for software code and log analysis.</li>
                     <li>Information Retrieval: Skilled in advanced search methodologies, including stemming algorithms for precise data retrieval.</li>
@@ -121,7 +122,7 @@
     {
         if (firstRender)
         {
-            await Task.Delay(55);
+            await Task.Delay(666);
             renderAnimation = false;
             StateHasChanged();
         }

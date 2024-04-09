@@ -11,11 +11,11 @@
 <div class="container-fluid">
     <div class="row mt-0">
         <div class="col col-12 mt-0">
-            <div style="position: relative; height: 3rem; display: flex; justify-content: left; align-items: center;">
-                @if(renderAnimation)
+            <div style="position: relative; height: 3rem; display: flex; justify-content: left; align-items: center;">                @if(renderAnimation)
                 {
-                    <div class="glitch" data-text="🌸">🌸</div>
-                    <div class="glow">🌸</div>
+                    <h1 style="margin: 0;">Contact</h1>
+                    <div style="display:inline-block;" class="glitch" data-text="🌸">🌸</div>
+                    <div style="display:inline-block;" class="glow">🌸</div>
                 }
                 else
                 {
@@ -297,7 +297,7 @@
                             drop me an unencrypted e-mail
                         </a>
                     </p>
-                    , but then still consider securing your code with GnuPG keys.
+                    , but then still consider securing your code in your day-to-day work.
                 </div>
             </div>
         </div>
@@ -309,13 +309,18 @@
                     Why GnuPG?
 
                     <ul>
-                        <li><strong>Encryption</strong>: Encrypt sensitive data—whether it's configuration files, API keys, or user credentials. With GnuPG, only authorized parties can decipher the content.</li>
+                        <li><strong>Encryption</strong>: Encrypt sensitive data - whether it's configuration files, API keys, or user credentials. With GnuPG, only authorized parties can decipher the content.</li>
                         <li><strong>Digital Signatures</strong>: Sign your commits, tags, and releases. A signed commit ensures that it originated from you, preventing tampering or unauthorized changes.</li>
                     </ul>
 
-                    <h3 class="mt-5">Goldilocks vs. Twisted Edwards</h3>
+                    Cryptography has come a long way, from ancient methods of encryption like Caesar ciphers to modern cryptographic techniques such as RSA and AES, and now even post-quantum cryptography algorithms like Kyber.
+                    ElGamal, for example, was an early modern asymmetric cryptographic system based on the difficulty of the discrete logarithm problem. Although it's no longer used, its easy-to-grasp algorithm is still a great example to get you started.
+                    A rich selection of post-quantum cryptographic algorithms already exists, but most cryptographic tools and libraries out there still lack them.
+                    So, let's consider my current keys.
+
+                    <h3 class="mt-5">Goldilocks versus Twisted Edwards</h3>
                     <ul>
-                        <li><strong>Goldilocks</strong>: A curve with robust security properties. Unfortunately, it's not universally supported across all channels, devices, and tools. Use it wisely.</li>
+                        <li><strong>Goldilocks</strong>: A curve with robust security properties. Unfortunately, it's not universally supported across all channels, devices, and tools..</li>
                         <li><strong>Twisted Edwards</strong>: A pragmatic alternative. It enjoys broader compatibility and many platforms already embrace it.</li>
                     </ul>
 
@@ -355,17 +360,17 @@
 
         <div class="row mt-5">
             <div class="col col-12">
-                <h3>Let's apply the grand three properties commonly associated with GnuPG on us Devs daywork</h3>
+                <h3>Let's apply the grand three properties commonly associated with GnuPG on our day-to-day work.</h3>
                 <ul>
                     <li>
                         <strong>Confidentiality</strong>
-                        <p><strong>What It Means:</strong> Confidentiality ensures that sensitive information remains private and inaccessible to unauthorized parties. When data is encrypted using GnuPG/PGP, only authorized recipients can decrypt and access it.</p>
+                        <p><strong>What It Means:</strong> Confidentiality ensures that sensitive information remains private and inaccessible to unauthorized parties. When data is encrypted using GnuPG, only authorized recipients can decrypt and access it.</p>
                         <p><strong>Software Development Example:</strong> Imagine you're developing a web application that connects to a database. You store the database credentials (username and password) in a configuration file. To maintain confidentiality, you use GnuPG to encrypt this configuration file. Now, even if someone gains access to the file, they won't be able to decipher the credentials without the decryption key.</p>
                         <p><strong>Container Image Example:</strong> When building a container image, you might include environment variables containing sensitive information (e.g., API keys, database connection strings). Encrypt these variables using GnuPG before adding them to the image. This way, even if the image is compromised, the sensitive data remains confidential.</p>
                     </li>
                     <li>
                         <strong>Integrity</strong>
-                        <p><strong>What It Means:</strong> Integrity ensures that data remains unchanged and unaltered during transmission or storage. GnuPG/PGP achieves this through digital signatures, which verify the authenticity and integrity of files.</p>
+                        <p><strong>What It Means:</strong> Integrity ensures that data remains unchanged and unaltered during transmission or storage. GnuPG achieves this through digital signatures, which verify the authenticity and integrity of files.</p>
                         <p><strong>Software Development Example:</strong> Suppose you're distributing a software release package. Before sharing it, sign the package using your GnuPG private key. Recipients can verify the package's integrity by checking the digital signature against your public key. If the package has been tampered with, the signature won't match, alerting users to potential issues.</p>
                         <p><strong>Container Image Example:</strong> When pushing a container image to a registry, sign it with your GnuPG key. Users pulling the image can verify its integrity using your public key. If the image has been modified (perhaps due to a security breach), the signature won't validate, preventing its use.</p>
                     </li>
@@ -388,7 +393,7 @@
 
                 <section>
                     <h3 class="mt-5">Key Management Best Practices</h3>
-                    <p>Effective key management is crucial for maintaining the security and integrity of cryptographic systems like GnuPG and PGP. Here are some best practices:</p>
+                    <p>Effective key management is crucial for maintaining the security and integrity of cryptographic systems. Here are some best practices:</p>
                     <ul>
                     <li><strong>Use Strong Passphrases:</strong> Ensure that your private keys are protected by strong passphrases. A passphrase should be lengthy, complex, and unique.</li>
                     <li><strong>Regularly Rotate Keys:</strong> Periodically rotate your keys, especially if they're used in critical systems or if there's a chance they've been compromised. This minimizes the impact of a potential breach.</li>
@@ -450,7 +455,7 @@
     {
         if (firstRender)
         {
-            await Task.Delay(55);
+            await Task.Delay(666);
             renderAnimation = false;
             StateHasChanged();
         }
