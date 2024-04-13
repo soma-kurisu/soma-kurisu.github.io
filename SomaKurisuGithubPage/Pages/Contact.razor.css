@@ -136,12 +136,22 @@ li {
 }
 
 .matrix-logo-bg {
-  background-image: url('image/matrix.org.svg');
-  background-repeat: no-repeat;
-  background-size: cover;
-  min-height: 1.5rem;
-  min-width: 1.3rem;
-  margin-right: 1rem;
+    background-image: url('image/matrix.org.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 1.5rem;
+    min-width: 1.3rem;
+    margin-right: 1rem;
+}
+
+.hf-logo-pirate {
+    background-image: url('image/hf-logo-pirate.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 1.9rem;
+    min-width: 2rem;
+    margin-right: 1rem;
+    margin-left: -0.3rem;
 }
 
 .bi-fullscreen {
