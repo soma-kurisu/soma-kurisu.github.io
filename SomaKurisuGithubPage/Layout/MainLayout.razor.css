@@ -17,7 +17,6 @@ main {
 }
 
 .top-row {
-    border-bottom: 1px solid #414040;
     justify-content: flex-end;
     height: 3.5rem;
     display: flex;
