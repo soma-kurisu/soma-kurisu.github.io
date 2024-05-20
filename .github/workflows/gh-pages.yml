@@ -31,14 +31,14 @@ jobs:
 
       # Publish the site
       - name: Publish
-        run: dotnet publish SomaKurisuGithubPage/SomaKurisuGithubPage.csproj -c:Release -o:public -p:GHPages=true
+        run: dotnet publish SomaKurisuGithubPage/SomaKurisuGithubPage.csproj -c:Release -o:publish -p:GHPages=true
 
       # Deploy the site
       - name: Deploy
-        uses: peaceiris/actions-gh-pages@v3
+        uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: public/wwwroot
+          publish_dir: publish/wwwroot
           force_orphan: true
           # decide between bot and personal account
           # user_name: 'github-actions[bot]'
