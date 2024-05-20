@@ -18,7 +18,7 @@ main {
 
 .top-row {
     justify-content: flex-end;
-    height: 3.5rem;
+    height: 2.5rem;
     display: flex;
     align-items: center;
 }
@@ -80,4 +80,10 @@ main {
 
 .navbar-brand {
     font-size: 1.1rem;
+}
+
+.right-sidebar {
+    position: sticky;
+    top: 0;
+    z-index: 1;
 }
