@@ -1,7 +1,12 @@
+.top-row {
+  position: sticky;
+  top: 0;
+}
+
 .sidebar {
-    height: 100vh;
-    position: sticky;
-    top: 0;
+  height: 100vh;
+  position: sticky;
+  top: 0;
 }
 
 h1, h2, h3 {
