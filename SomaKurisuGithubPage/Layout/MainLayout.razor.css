@@ -82,6 +82,7 @@ main {
 }
 
 .right-sidebar {
+    height: 90vh;
     position: sticky;
     top: 0;
     z-index: 1;
