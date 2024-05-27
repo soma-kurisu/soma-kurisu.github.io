@@ -55,6 +55,13 @@
         </div>
         <div class="col col-2">
             <div class="nav-item">
+                <a class="nav-item px-3 @(currentOption == Option.Kyber ? "active" : "")" @onclick="() => SetOption(Option.Kyber)">
+                    <span class="bi bi-brightness-alt-high-fill" aria-hidden="true"></span> Experimental
+                </a>
+            </div>
+        </div>
+        <div class="col col-2">
+            <div class="nav-item">
                 <a class="nav-item px-3 @(currentOption == Option.Social ? "active" : "")" @onclick="() => SetOption(Option.Social)">
                     <span class="bi bi-brightness-low-fill" aria-hidden="true"></span> Social
                 </a>
@@ -142,6 +149,91 @@
                     <a class="nav-item px-3" href="https://huggingface.co/sca-ai" target="_blank" rel="me">
                         <span class="hf-logo-pirate" aria-hidden="true"></span> sca-ai
                     </a>
+                </div>
+            </div>
+        </div>
+        break;
+    case Option.Kyber:
+        /* Blazor does not support raw string literals yet */
+        info = @"
+        Keys and expiry info
+
+        sub   ed448 2024-04-01 [S] [expires: 2025-04-01]
+        sub   cv448 2024-04-01 [E] [expires: 2025-04-01]
+        ".Replace(new String(' ', 8), string.Empty);
+        keys = @"
+        -----BEGIN PGP PUBLIC KEY BLOCK-----
+
+        mEkFZgsC8xYAAAA/AytlcQHI3ZEph7WwRQbNtj3KnjiYzkyOkgW5uyGYUnqL8HYl
+        o55Ucz7spHnYwLQVty9k4VZva2TBejoGVEWAtCBTT01BIEt1cmlzdSAoUHJpbWFy
+        eSBHb2xkaWxvY2tzKYjNBRMWCgBNIiEFuuZBfXc1MAmzZUvNZC0PtKDiGgZUI1c9
+        bxT1WGiTjFIFAmYLAvMCGwMFCQtHNQAFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcC
+        F4AAAONaAcMHIBFjyqFmFQhG1SppNIzanmibbCtugf7RwUszovqoCuGEu70ZFc+U
+        jTjUjoc2fKvZMdRievVxKwABxi6cia8oYDjLZRrUdwacHUf6ETwfjQsRWZGlt6/M
+        AFdu8zH4TjowTIVkhVbOgSKhvWmLqAFYhe0RALRIU09NQSBLdXJpc3UgKFByaW1h
+        cnkgR29sZGlsb2NrcyBTaWduaW5nIElkZW50aXR5KSA8MHhlMjgzNmNiNEBnbWFp
+        bC5jb20+iM0FExYKAE0iIQW65kF9dzUwCbNlS81kLQ+0oOIaBlQjVz1vFPVYaJOM
+        UgUCZgsQ7gIbAwUJC0c1AAULCQgHAgIiAgYVCgkICwIEFgIDAQIeBwIXgAAAJTsB
+        yPJVZ5L+rRYGuuRS9/xA1l68tPEVNyt16mG52fnMTpTs42mxCtsKBMWuWYD03AcA
+        sTwQIgAKM30KgAHHYDs27KzLEtdtAaaZDT1UWQ8oEFdCOnBYpMIPoR2FwbdJ8BFg
+        bkE3DhOBid4sqEwM7aLeKj1cXw0AuEkFZgsDnRYAAAA/AytlcQHIt1ISjdcMyr07
+        d6T/vHZL3uqKrQTgj0+tgZrQh4VlHWqQxZm07nZVGyvec9RKfORFxtZv+1/nGYOA
+        iQFdBRgWCgAyIiEFuuZBfXc1MAmzZUvNZC0PtKDiGgZUI1c9bxT1WGiTjFIFAmYL
+        A50CGwIFCQHhM4AAq6ogBRkWCgApIiEFawYq04lUMEdUXYmJDfampjRGJEIG482S
+        vihQhGXyQ1EFAmYLA50AAP3DAcisstm0pJ72VGQSeHJNoVNLD/M3fnA9hb/5f1Cb
+        7wdUunQdX1FhwCjkLoRt2CsyPN1YKveyqxyRfQAByO7CaZR5TSfHgPXAJrYgXG2/
+        syCJsODIySKfX8+TeHYD9EFaRB+QjSA3bzo2lWjaLgfzM4DEyyYbAPz1AcdFEYaa
+        rk3LZfCZvqXfCg6Cm5Ji6hj9gStX7vOnBv8UGjuLa8OXeqoRbG16TKKEaIxgxpbB
+        auUHJAAByNhXwLsg1AE9FJMMq7NKZOT3uyOQkt0b1Ses/xdZZdPDk358zJ+3eoOf
+        Eg+uJgr1mzPpW5P5P9wnALhMBWYLBCkSAAAAQgMrZW8BvR6OCl+TpLVJNAixFONW
+        aP9/Rh2ZmaNQj2pKBvT5avlJdcOJ6wAkHLZM6rMp+KgQlGXbbHiQDANtAwEKCYiy
+        BRgWCgAyIiEFuuZBfXc1MAmzZUvNZC0PtKDiGgZUI1c9bxT1WGiTjFIFAmYLBCkC
+        GwwFCQHhM4AAAM3ZAcd55FSHA2SvNij/bOnuVmmGWlZvN+5HTIWb1PSrU+/mbezZ
+        4BCNj+vuSyHuN98HLv34SOv2CIblKYABx09AjfjlpYtgervOlcP/nBrTVCXG12Uo
+        s+CkQMO9B59MxPZujapjtCv0xK20LaPLSP1ZVg2x/+gVAA==
+        =W8Id
+        -----END PGP PUBLIC KEY BLOCK-----
+        ".Replace(new String(' ', 8), string.Empty);
+        <div class="row">
+            <div class="col col-12">
+                <p>This is my daunting new Kyber key. Consider using my Goldilocks keys.</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col col-4">
+                <pre class="overflow-hidden">
+                    <code>
+                        @keys
+                    </code>
+                </pre>
+            </div>
+            <div class="col col-6 px-2">
+                <div class="row px-4">
+                    <div class="col col-12">
+                        <pre class="overflow-hidden">
+                            <code>
+                                @info
+                            </code>
+                        </pre>
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col col-auto">
+                        <div class="nav-item">
+                            <a class="nav-item px-3" href="" @onclick="CopyKeys" @onclick:preventDefault>
+                                <span class="bi bi-copy" aria-hidden="true"></span>
+                                Copy Keys
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col col-auto">
+                        <div class="nav-item">
+                            <a class="nav-item px-3" href="mailto:0xe2836cb4@gmail.com?body=---fpr:BAE6417D77353009B3654BCD642D0FB4A0E21A065423573D6F14F55868938C52---">
+                                <span class="bi bi-send-fill" aria-hidden="true"></span>
+                                Create Mail
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -457,10 +549,11 @@
 </div>
 
 @code {
-    private enum Option { None, Goldilocks, TwistedEdwards, Social }
+    private enum Option { None, Kyber, Goldilocks, TwistedEdwards, Social }
     private Option currentOption = Option.Social;
     private string DisplayOption => currentOption switch {
         Option.Social => "my social media handles",
+        Option.Kyber => "my experimental Kyber keys",
         Option.Goldilocks => "my spinal tap-grade security keys",
         Option.TwistedEdwards => "my all-day, all-purpose keys",
         _ => "unencrypted plain text e-mail",
