@@ -196,7 +196,57 @@
         ".Replace(new String(' ', 8), string.Empty);
         <div class="row">
             <div class="col col-12">
-                <p>This is my daunting new Kyber key. Consider using my Goldilocks keys.</p>
+                <p>This is a daunting new Kyber key I currently fiddle with. Consider using the primary Goldilocks instead.</p>
+                <p>If you'd like to play along with Yutaka's and Werner's PQC Support in GnuPG you may follow the instructions below.</p>
+            </div>
+            <div class="col col-4">
+                <p>
+                    <h3 class="mt-2">1 - Acquire the code's tar archive</h3>
+                    <ul>
+                        <li>curl -LO https://gnupg.org/ftp/gcrypt/snapshots/gnupg/gnupg-w32-2.5.0-beta465_20240426.tar.xz</li>
+                        <li>curl -LO https://gnupg.org/ftp/gcrypt/snapshots/gnupg/gnupg-w32-2.5.0-beta465_20240426.tar.xz.sig</li>
+                        <li>tar -xf *.tar.xz</li>
+                    </ul>
+                </p>
+            </div>
+            <div class="col col-8">
+                <p>
+                    <h3 class="mt-2">2 - Install the dependencies</h3>
+                    <div class="row">
+                        <div class="col col-3">
+                            <ul>
+                                <li>patchelf</li>
+                                <li>build-essential</li>
+                                <li>fig2dev</li>
+                                <li>flex</li>
+                            </ul>
+                        </div>
+                        <div class="col col-3">
+                            <ul>
+                                <li>bison</li>
+                                <li>gettext</li>
+                                <li>autopoint</li>
+                            </ul>
+                        </div>
+                    </div>
+                </p>
+            </div>
+            <div class="col col-4">
+                <p>
+                    <h3 class="mt-2">3 - Build your personal beta build</h3>
+                    <ul>
+                        <li>sudo make -f build-aux/speedo.mk native</li>
+                    </ul>
+                </p>
+            </div>
+            <div class="col col-4">
+                <p>
+                    <h3 class="mt-2">4 - Get your Kyber key</h3>
+                    <ul>
+                        <li>create a standard key and set STANDARD_KEY_FINGERPRINT to its fingerprint</li>
+                        <li>add a Kyber encryption subkey by running: gpg --quick--add-key ${STANDARD_KEY_FINGERPRINT} kyber</li>
+                    </ul>
+                </p>
             </div>
         </div>
         <div class="row">
